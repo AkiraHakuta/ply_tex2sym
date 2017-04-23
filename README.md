@@ -182,7 +182,7 @@ def p_expr_exponent(p):
 ```
 \left| expr \right| で定義をすることにします。  
 
-#### example.tex  
+### example.tex  
 pythontex について    
 \begin{pycode}    
 code    
