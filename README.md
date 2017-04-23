@@ -29,7 +29,7 @@ python.exe tex2sym_parser.py
 variable : a,b,...,z,\alpha,\beta,\gamma,\theta,\oomega
 constant : pi --> \ppi, imaginary unit --> \ii, napier constant --> \ee
 
-ply_tex2sym LaTex expresion style
+ply_tex2sym LaTeX expression style
 \sin{x}
 \cos^{2}{\theta}
 \log{2}
@@ -43,9 +43,9 @@ ply_tex2sym LaTex expresion style
 a_{n}
 
 
-pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex
-pythontex.exe example.tex
-pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex
+pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex  
+pythontex.exe example.tex  
+pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex  
 ```
 ## Examples
 
@@ -69,7 +69,7 @@ tex2sym(r'\left| \left| 3-\ppi \right|-1\right|') --> Abs(Abs(3 - pi) - 1)
 
 ### in japanese 2017/04/23版
 
-## ply_tex2sym は LaTex の数式コードを解析して、SymPy のコード変換する Python のプログラムツールです。
+## ply_tex2sym は LaTeX の数式コードを解析して、SymPy のコード変換する Python のプログラムツールです。
 すでに、antlr4 で作られたLaTeX2SymPy <https://github.com/augustt198/latex2sympy> があります。
 今回、python の構文解析ライブラリ PLY で作ってみました。
 
@@ -107,7 +107,7 @@ WARNINGが出ますが、
 ... resolved using rule (expr -> expr MINUS expr)
 2回目以降、WARNINGは出ません。
 出力をみると
-tex2sym_parser.tex2sym
+tex2sym_parser.tex2sym(texexpr)
 でどんな変換ができるか、分かると思います。
 
 更に
@@ -122,7 +122,7 @@ pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex
 **** tex2sym_lexer.py ****
 ply.lex.lex() は字句解析機を構築します。
 これを用いて、文字列をtokenの並びへと変換します。
-python tex2sym_lexer.py
+python.exe tex2sym_lexer.py
 を実行して下さい。
 どんな単語をtokenとして認識しているのかが分かります。
 tokenの定義する方法は２つあります。
