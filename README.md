@@ -119,7 +119,7 @@ pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex
 を実行すると、example.pdf が作成できます。
 
 ### 各ファイルの説明
-**** tex2sym_lexer.py ****
+**** tex2sym_lexer.py ****  
 ply.lex.lex() は字句解析機を構築します。
 これを用いて、文字列をtokenの並びへと変換します。
 python.exe tex2sym_lexer.py
@@ -153,7 +153,7 @@ def t_NN_FLOAT(t):
 [('123.456', 'NN_FLOAT')]となります。
 このように、順序に気を付けながらtokenを定義します。
 
-**** tex2sym_parser.py ****
+**** tex2sym_parser.py ****  
 ply.yacc.yacc() は 構文解析器を構築します。
 これを用いて、定義されたルールに従って、LaTex の数式コードを SymPy のコード変換します。
 ```
@@ -185,7 +185,7 @@ def p_expr_exponent(p):
 
 ```
 
-**** example.tex ****
+**** example.tex ****  
 pythontex について  
 \begin{pycode}  
 code  
@@ -202,14 +202,14 @@ pyはpython、cはcommandの意味。
 tex2sym_parser.mylatex(sympyexpr), tex2sym_parser.mylatexstyle(texexpr)
 で一部のギリシャ文字と &pi;, i, e が使える用に、置き換えをしています。
 
-### モジュールのimport
+### モジュールのimport  
 他のモジュールと同様に、  
 from tex2sym_parser import tex2sym, mylatex, mylatexstyle
 だけで import できるようにするには、  
-まず、ply_tex2sym を、Python35\Lib\site-packages にコピーまたは移動。  
-Python35\Lib\site-packages に、例えば、  
-ply_tex2sym  
-の1行だけのファイル ply_tex2sym.pth を作ります。  
+まず、ダウンロードしたフォルダー ply_tex2sym-master を、Python35\Lib\site-packages にコピーまたは移動し,
+Python35\Lib\site-packages に、例えば、  
+ply_tex2sym-master  
+の1行だけのファイル ply_tex2sym-master.pth を作ります。  
 pythonは .pth の付いたファイルを読み込んで path を設定します。絶対path でもOK。  
 
 
