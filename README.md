@@ -69,7 +69,7 @@ tex2sym(r'\left| \left| 3-\ppi \right|-1\right|') --> Abs(Abs(3 - pi) - 1)
 
 ### in japanese 2017/04/23版
 
-## ply_tex2sym は LaTeX の数式コードを解析して、SymPy のコード変換する Python のプログラムツールです。  
+### ply_tex2sym は LaTeX の数式コードを解析して、SymPy のコード変換する Python のプログラムツールです。  
 すでに、antlr4 で作られたLaTeX2SymPy <https://github.com/augustt198/latex2sympy> があります。  
 今回、python の構文解析ライブラリ PLY で作ってみました。  
 
