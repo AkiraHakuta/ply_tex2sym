@@ -181,11 +181,8 @@ def p_expr_exponent(p):
 | 2|-3+4|-5 | = 2 - 3 + 20 = 19
 ```
 \left| expr \right| で定義をすることにします。  
-   
 
-```
-
-### example.tex  
+#### example.tex  
 pythontex について    
 \begin{pycode}    
 code    
