@@ -1,8 +1,8 @@
 # ply_tex2sym
 
-ply_tex2sym parses LaTeX math expressions and converts it into the equivalent SymPy form by PLY.
+ply_tex2sym parses LaTeX math expressions and converts it into the equivalent SymPy form by PLY.  
 
-Author:Akira Hakuta,  Date: 2017/04/23
+Author:Akira Hakuta,  Date: 2017/04/23  
 
 ## Installation (windows)
 
@@ -12,9 +12,9 @@ TeX Live:  <http://www.tug.org/texlive/acquire-netinstall.html>
 \texlive\2016\bin\win32\pythontex.exe
 ```
 
-python3: <https://www.python.org/downloads/windows/>
-sympy : <http://www.sympy.org/en/index.html>
-ply : <http://www.dabeaz.com/ply/>
+python3: <https://www.python.org/downloads/windows/>  
+sympy : <http://www.sympy.org/en/index.html>  
+ply : <http://www.dabeaz.com/ply/>  
 ```
 pip install sympy
 pip install ply
