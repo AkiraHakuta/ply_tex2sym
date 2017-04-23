@@ -119,7 +119,7 @@ pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex
 を実行すると、example.pdf が作成できます。  
 
 ### 各ファイルの説明  
-*** tex2sym_lexer.py ***  
+##### tex2sym_lexer.py ***  
 ply.lex.lex() は字句解析機を構築します。  
 これを用いて、文字列をtokenの並びへと変換します。  
 python.exe tex2sym_lexer.py  
