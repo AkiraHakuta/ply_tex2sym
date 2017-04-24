@@ -72,7 +72,7 @@ F=Function('F')
 		
 		\item \pyc{texexpr=r'\frac{\frac{1}{~2~}-\frac{1}{~3~}}{~~\frac{1}{~2~}+\frac{1}{~3~}~~}'}
 			\pyc{result=simplify(tex2sym(texexpr))}
-		\py{'$\displaystyle '+mylatexstyle(texexpr).replace(r'\frac',r'\dfrac')+'='+mylatex(result)+'$'}\myvspace
+			\py{'$\displaystyle '+mylatexstyle(texexpr).replace(r'\frac',r'\dfrac')+'='+mylatex(result)+'$'}\myvspace
 		
 		\item \pyc{texexpr=r'\frac{1}{~2~}a+0.5a-3a\div 5'}
 			\pyc{result=simplify(tex2sym(texexpr))}
