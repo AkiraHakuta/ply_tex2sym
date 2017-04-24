@@ -2,7 +2,7 @@
 
 ply_tex2sym parses LaTeX math expressions and converts it into the equivalent SymPy form by PLY.  
 
-Author:Akira Hakuta,  Date: 2017/04/23  
+Author:Akira Hakuta,  Date: 2017/04/24   
 
 ## Installation (windows)
 
