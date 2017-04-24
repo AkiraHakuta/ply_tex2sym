@@ -64,10 +64,11 @@ tex2sym(r'\lim_{x \to -\infty}{(\sqrt{x^2+3x}+x)}') --> limit((sqrt((x) ** (2) +
 tex2sym(r'12a_{n+1}-35a_{n}') --> 12*F(n + 1) - 35*F(n)
 tex2sym(r'2x^2+3x+4=0') --> Eq(2*(x) ** (2) + 3*x + 4,0)
 tex2sym(r'x^2-3x-4 \leq 0') --> (x) ** (2) - 3*x - 4<=0
-tex2sym(r'\left| \left| 3-\ppi \right|-1\right|') --> Abs(Abs(3 - pi) - 1)
+tex2sym(r'\left| \left| 3-\ppi \right|-1\right|') --> Abs(Abs(3 - pi) - 1)  
 ```
 
-### in japanese 2017/04/23版
+
+### in japanese 2017/04/24版
 
 #### ply_tex2sym は LaTeX の数式コードを解析して、SymPy のコード変換する Python のプログラムツールです。  
 すでに、antlr4 で作られたLaTeX2SymPy <https://github.com/augustt198/latex2sympy> があります。  
@@ -197,7 +198,12 @@ pyはpython、cはcommandの意味。
 
 
 tex2sym_parser.mylatex(sympyexpr), tex2sym_parser.mylatexstyle(texexpr)  
-で一部のギリシャ文字と &pi;, i, e が使える用に、置き換えをしています。  
+で一部のギリシャ文字と &pi;, i, e が使える用に、置き換えをしています。
+
+error となる可能性があるため、  
+\py{'$\displaystyle {}={}$'.format(mylatexstyle(texexpr),mylatex(result))} を  
+\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}   
+に変更しました。(2017/04/24)  
 
 ### モジュールのimport    
 他のモジュールと同様に、    
