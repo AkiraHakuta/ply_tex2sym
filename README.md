@@ -93,8 +93,8 @@ pip install sympy
 ply も使うので、pip install ply  
 
 ### 使い方  
-python tex2sym_parser.py  
-を実行すると、  
+python.exe tex2sym_parser.py  
+を実行すると、  以下のようなWARNINGメッセージがでるかもしれません、
 ```
 Generating LALR tables
 WARNING: 29 shift/reduce conflicts
@@ -102,10 +102,6 @@ WARNING: 76 reduce/reduce conflicts
 WARNING: reduce/reduce conflict in state 58 resolved using rule (expr -> expr MINUS expr)
 ....
 ```
-
-なるメッセージがでて、幾つかのファイルが生成されます。  
-WARNINGが出ますが、  
-... resolved using rule (expr -> expr MINUS expr)  
 2回目以降、WARNINGは出ません。  
 出力をみると  
 tex2sym_parser.tex2sym(texexpr)  
