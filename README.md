@@ -75,7 +75,8 @@ tex2sym(r'\left| \left| 3-\ppi \right|-1\right|') --> Abs(Abs(3 - pi) - 1)
 ```
  tex2sym(r'-x^2') --> (((-1)*(x))) ** (2)  
  となる不具合を修正  
- precedence の順序   
+ tex2sym_parser.py
+ precedence の順序    
     ('right', 'EXPONENT'),  
     ('right', 'UPLUS', 'UMINUS'),  
   としました。  
