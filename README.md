@@ -2,7 +2,7 @@
 
 ply_tex2sym parses LaTeX math expressions and converts it into the equivalent SymPy form by PLY.  
 
-Author:Akira Hakuta,  Date: 2017/04/24   
+Author:Akira Hakuta,  Date: 2017/04/26   
 
 ## Installation (windows)
 
@@ -68,11 +68,22 @@ tex2sym(r'\left| \left| 3-\ppi \right|-1\right|') --> Abs(Abs(3 - pi) - 1)
 ```
 
 
-### in japanese 2017/04/24版
+### in japanese
+
+#### 修正情報
+2017/04/26 
+ tex2sym(r'-x^2') --> (((-1)*(x))) ** (2)
+ となる不具合を修正
+ precedence の順序 、
+    ('right', 'EXPONENT'),
+    ('right', 'UPLUS', 'UMINUS'),
+  としました。
+ 
 
 #### ply_tex2sym は LaTeX の数式コードを解析して、SymPy のコード変換する Python のプログラムツールです。  
 すでに、antlr4 で作られたLaTeX2SymPy <https://github.com/augustt198/latex2sympy> があります。  
 今回、python の構文解析ライブラリ PLY で作ってみました。  
+
 
 
 
