@@ -1,4 +1,4 @@
-% example.tex   Author: Akira Hakuta, Date: 2017/04/24
+% example.tex   Author: Akira Hakuta, Date: 2017/04/26
 % pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex
 % pythontex.exe example.tex
 % pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex 
@@ -198,7 +198,10 @@ F=Function('F')
 		
 		\item \pyc{texexpr=r'x^3-2x^2-5x+6 \geqq 0'}
 			\pyc{result=solve_univariate_inequality(simplify(tex2sym(texexpr)), x, relational=False)}
-			\py{'$\displaystyle {:s},~~~~solution:~{:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace			
+			\py{'$\displaystyle {:s},~~~~solution:~{:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace				
+		\item \pyc{texexpr=r'-x^2-x^2'}
+			\pyc{result=simplify(tex2sym(texexpr))}
+			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
 		
 	\end{enumerate}
 	
