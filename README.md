@@ -71,13 +71,13 @@ tex2sym(r'\left| \left| 3-\ppi \right|-1\right|') --> Abs(Abs(3 - pi) - 1)
 ### in japanese
 
 #### 修正情報
-2017/04/26 
- tex2sym(r'-x^2') --> (((-1)*(x))) ** (2)
- となる不具合を修正
- precedence の順序 、
-    ('right', 'EXPONENT'),
-    ('right', 'UPLUS', 'UMINUS'),
-  としました。
+2017/04/26  
+ tex2sym(r'-x^2') --> (((-1)*(x))) ** (2)  
+ となる不具合を修正  
+ precedence の順序   
+    ('right', 'EXPONENT'),  
+    ('right', 'UPLUS', 'UMINUS'),  
+  としました。  
  
 
 #### ply_tex2sym は LaTeX の数式コードを解析して、SymPy のコード変換する Python のプログラムツールです。  
