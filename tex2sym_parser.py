@@ -15,8 +15,8 @@ precedence = (
     ('left', 'PLUS', 'MINUS'),
     ('left', 'MULT', 'DIV'),
     #('left','F_TRIG','F_TRIG_CAR','F_LOG','F_LOG_UB'),
+    ('right', 'UPLUS', 'UMINUS'),  
     ('right', 'EXPONENT'),
-    ('right', 'UPLUS', 'UMINUS'),         
     )
 
 
