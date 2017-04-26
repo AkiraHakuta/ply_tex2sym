@@ -1,4 +1,4 @@
-# tex2sym_parser.py   Author: Akira Hakuta, Date: 2017/04/23
+# tex2sym_parser.py   Author: Akira Hakuta, Date: 2017/04/26
 # python.exe tex2sym_parser.py
 
 from ply import yacc
