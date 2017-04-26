@@ -307,6 +307,6 @@ if __name__ == '__main__':
     print(tex2sym(r'10!'))
     print(tex2sym(r'_{5}C_{2}'))
     print(tex2sym(r'_{5}P_{2}')) 
-
+    print(tex2sym(r'-x^2'))
     
     
