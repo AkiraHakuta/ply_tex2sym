@@ -2,7 +2,7 @@
 
 ply_tex2sym parses LaTeX math expressions and converts it into the equivalent SymPy form by PLY.  
 
-Author:Akira Hakuta,  Date: 2017/04/26   
+Author:Akira Hakuta,  Date: 2017/05/01  
 
 ## Installation (windows)
 
@@ -41,6 +41,7 @@ ply_tex2sym LaTeX expression style
 \sum_{k=1}^{n}{k(k+1)^2}
 \left| 3 - \ppi \right|
 a_{n}
+\{a-2(b-c)\}^2  
 
 
 pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex  
@@ -70,25 +71,9 @@ tex2sym(r'\left| \left| 3-\ppi \right|-1\right|') --> Abs(Abs(3 - pi) - 1)
 
 ### in japanese
 
-#### 修正情報
-2017/04/26  
-```
- tex2sym(r'-x^2') --> (((-1)*(x))) ** (2)  
- となる不具合を修正  
- tex2sym_parser.py
- precedence の順序    
-    ('right', 'EXPONENT'),  
-    ('right', 'UPLUS', 'UMINUS'),  
-  としました。  
-```
- 
-
 #### ply_tex2sym は LaTeX の数式コードを解析して、SymPy のコード変換する Python のプログラムツールです。  
 すでに、antlr4 で作られたLaTeX2SymPy <https://github.com/augustt198/latex2sympy> があります。  
 今回、python の構文解析ライブラリ PLY で作ってみました。  
-
-
-
 
 ### 各ソフトのインスツール   
 #### TexLive  
@@ -226,6 +211,24 @@ ply_tex2sym-master
 pythonは .pth の付いたファイルを読み込んで path を設定します。絶対path でもOK。    
 
 
+#### 修正情報
+2017/04/26  
+```
+ tex2sym(r'-x^2') --> (((-1)*(x))) ** (2)  
+ となる不具合を修正  
+ tex2sym_parser.py
+ precedence の順序    
+    ('right', 'EXPONENT'),  
+    ('right', 'UPLUS', 'UMINUS'),  
+  としました。  
+```
+
+2017/05/01  
+```
+underbar を '_' に統一  
+LaTeX の数式コードに 中括弧 { } が使用できるように変更
+
+```
 
 
 
