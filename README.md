@@ -204,9 +204,9 @@ error となる可能性があるため、
 他のモジュールと同様に、    
 from tex2sym_parser import tex2sym, mylatex, mylatexstyle   
 だけで import できるようにするには、    
-まず、ダウンロードしたフォルダー ply_tex2sym-master を、Python35\Lib\site-packages にコピーまたは移動し,    
-Python35\Lib\site-packages に、例えば、     
-ply_tex2sym-master    
+まず、ダウンロードしたフォルダー ply_tex2sym-master を、Python35\Lib\site-packages にコピーまたは移動し,   
+Python35\Lib\site-packages に、例えば、  
+ply_tex2sym-master  
 の1行だけのファイル ply_tex2sym-master.pth を作ります。    
 pythonは .pth の付いたファイルを読み込んで path を設定します。絶対path でもOK。    
 
