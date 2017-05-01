@@ -93,7 +93,7 @@ ply も使うので、pip install ply
 
 ### 使い方  
 python.exe tex2sym_parser.py  
-を実行すると、  以下のようなWARNINGメッセージがでるかもしれません、
+を実行すると、  以下のようなWARNINGメッセージがでるかもしれません、  
 ```
 Generating LALR tables
 WARNING: 29 shift/reduce conflicts
@@ -145,7 +145,7 @@ def t_NN_FLOAT(t):
 の順序で定義すると、  
 '123.456'は  
 [('123', 'NN_INTEGER'), ('.456', 'NN_FLOAT')] のように２つのtokenと認識してしまいます。  
-定義の順序を入れ替えると  
+定義の順序を入れ替えると   
 [('123.456', 'NN_FLOAT')]となります。  
 このように、順序に気を付けながらtokenを定義します。  
 
@@ -188,24 +188,24 @@ codeの部分にpythonのコードを書き込みます。
 \pyc{code}はcodeを実行するコマンド。複数のコマンドを実行するのであれば、; を間に入れる。    
 pyはpython、cはcommandの意味。  
 
-\py{value}は、valueを可能ならば文字列に変えて出力するコマンドのようです。    
+\py{value}は、valueを可能ならば文字列に変えて出力するコマンドのようです。     
 \py{'text'}と\pyc{print('text')} は共に、文字列 text を出力します。    
 
 
-tex2sym_parser.mylatex(sympyexpr), tex2sym_parser.mylatexstyle(texexpr)  
-で一部のギリシャ文字と &pi;, i, e が使える用に、置き換えをしています。
+tex2sym_parser.mylatex(sympyexpr), tex2sym_parser.mylatexstyle(texexpr)   
+で一部のギリシャ文字と &pi;, i, e が使える用に、置き換えをしています。  
 
-error となる可能性があるため、  
-\py{'$\displaystyle {}={}$'.format(mylatexstyle(texexpr),mylatex(result))} を  
+error となる可能性があるため、   
+\py{'$\displaystyle {}={}$'.format(mylatexstyle(texexpr),mylatex(result))} を   
 \py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}   
-に変更しました。(2017/04/24)  
+に変更しました。(2017/04/24)   
 
 ### モジュールのimport    
 他のモジュールと同様に、    
-from tex2sym_parser import tex2sym, mylatex, mylatexstyle  
+from tex2sym_parser import tex2sym, mylatex, mylatexstyle   
 だけで import できるようにするには、    
-まず、ダウンロードしたフォルダー ply_tex2sym-master を、Python35\Lib\site-packages にコピーまたは移動し,  
-Python35\Lib\site-packages に、例えば、    
+まず、ダウンロードしたフォルダー ply_tex2sym-master を、Python35\Lib\site-packages にコピーまたは移動し,    
+Python35\Lib\site-packages に、例えば、     
 ply_tex2sym-master    
 の1行だけのファイル ply_tex2sym-master.pth を作ります。    
 pythonは .pth の付いたファイルを読み込んで path を設定します。絶対path でもOK。    
