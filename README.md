@@ -101,7 +101,6 @@ WARNING: 76 reduce/reduce conflicts
 WARNING: reduce/reduce conflict in state 58 resolved using rule (expr -> expr MINUS expr)
 ....
 ```
-2回目以降、WARNINGは出ません。  
 出力をみると  
 tex2sym_parser.tex2sym(texexpr)  
 でどんな変換ができるか、分かると思います。  
