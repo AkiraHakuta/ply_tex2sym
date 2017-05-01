@@ -84,7 +84,7 @@ install-tl-windows.exe でインスツールする。
 
 #### Python3  
 まず、<https://www.python.org/downloads/windows/> に入って、  
-python3 の好きなバージョン、32bit、64bitを選び、インスツールして下さい。 
+python3 の好きなバージョン、32bit、64bitを選び、インスツールして下さい。  
 コマンドプロンプトで   
 pip install sympy  
 と打ち込む。Successfully installed ...　と表示されればOK!    
