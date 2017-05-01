@@ -1,4 +1,4 @@
-# tex2sym_parser.py   Author: Akira Hakuta, Date: 2017/04/26
+# tex2sym_parser.py   Author: Akira Hakuta, Date: 2017/05/01
 # python.exe tex2sym_parser.py
 
 from ply import yacc
@@ -257,7 +257,7 @@ logging.basicConfig(
 
 
 def tex2sym(texexpr):
-    replace_list=[['~',''],[r'\,',''],[r'\:',''],[r'\;',''],[r'\!',''], [r'\left(','('],[r'\right)', ')'],
+    replace_list=[['~',''],['\,',''],['\:',''],['\;',''],['\!',''], [r'\{','('],[r'\}', ')'],[r'\left(','('],[r'\right)', ')'],        
         [r'\alpha','aalpha'],[r'\beta','bbeta'],[r'\gamma','ggamma'],[r'\omega','oomega'],[r'\theta','ttheta']]
     for le in replace_list:
         texexpr=texexpr.replace(le[0],le[1]) 
@@ -288,7 +288,7 @@ if __name__ == '__main__':
     print(tex2sym(r'2ab^2c^3'))
     print(tex2sym(r'\sqrt{3x}'))
     print(tex2sym(r'\frac{2}{3}'))
-    print(tex2sym(r'\sin {\ppi x}'))
+    print(tex2sym(r'\sin {\ppi x}'))#\sin \ppi x bad
     print(tex2sym(r'\sin {x} \cos {x} \tan {x}'))
     print(tex2sym(r'\sin {x} + \cos {x} + \tan {x}'))
     print(tex2sym(r'\sin^{2}{x} \cos^{2}{x} \tan^{2}{x}'))#\sin^k x, \cos^{10} x bad 
@@ -300,13 +300,15 @@ if __name__ == '__main__':
     print(tex2sym(r'\int_{1}^{3}{(x-1)(x-3)^2 dx}')) 
     print(tex2sym(r'\sum_{k=1}^{n}{k^3}'))
     print(tex2sym(r'\lim_{x \to -\infty}{(\sqrt{x^2+3x}+x)}'))
-    print(tex2sym(r'12a_{n+1}-35a_{n}'))
+    print(tex2sym(r'12a_{n+1}-35a_{n}'))#35a_n bad
     print(tex2sym(r'2x^2+3x+4=0'))
     print(tex2sym(r'x^2-3x-4 \leq 0'))
-    print(tex2sym(r'\left| \left| 3-\ppi \right|-1\right|'))
+    print(tex2sym(r'\left| \left| 3-\ppi \right|-1\right|'))#| | 3 - \ppi | -1 | bad
     print(tex2sym(r'10!'))
-    print(tex2sym(r'_{5}C_{2}'))
-    print(tex2sym(r'_{5}P_{2}')) 
+    print(tex2sym(r'_{5}C_{2}'))#_5C_2 bad
+    print(tex2sym(r'_{5}P_{2}'))#_5P_2 bad
     print(tex2sym(r'-x^2'))
+    print(tex2sym(r'\{a-2(b-c)\}^2'))
+    print(tex2sym(r'\left\{a-2(b-c)\right\}^2'))
     
     

@@ -1,10 +1,10 @@
-# tex2sym_lexer.py   Author: Akira Hakuta, Date: 2017/04/23
+# tex2sym_lexer.py   Author: Akira Hakuta, Date: 2017/05/01
 # python.exe tex2sym_lexer.py
 
 from ply import lex
 
 # List of token names.
-tokens = ('EXPONENT', 'FACTORIAL', 'MULT', 'DIV', 'PLUS', 'MINUS',   # CAR UB   	caret
+tokens = ('EXPONENT', 'FACTORIAL', 'MULT', 'DIV', 'PLUS', 'MINUS',
         'LBRACE', 'RBRACE', 'LPAREN', 'RPAREN','UB', 'LBRACKET','RBRACKET',
         'LPIPE', 'RPIPE',
         'PI', 'IMAGINARY_UNIT', 'NAPIER_CONSTANT', 
@@ -141,7 +141,7 @@ def t_F_TRIG(t):
     return t
     
 def t_F_LOG_UB(t):
-    r'\\log\_'
+    r'\\log_'
     return t
     
 def t_F_LOG(t):
