@@ -94,9 +94,9 @@ ply も使うので、pip install ply
 
 ### 使い方  
 python.exe tex2sym_parser.py  
-を実行。出力を見ると  　
-tex2sym_parser.tex2sym(texexpr)  
-でどんな変換ができるか、分かると思います。  
+を実行。出力を見ると  
+tex2sym_parser.tex2sym(texexpr)  
+でどんな変換ができるか、分かると思います。    
 
 更に  
 ```
