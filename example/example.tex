@@ -1,4 +1,4 @@
-% example.tex   Author: Akira Hakuta, Date: 2017/05/01
+% example.tex   Author: Akira Hakuta, Date: 2017/05/02
 % pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex
 % pythontex.exe example.tex
 % pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex 
@@ -7,7 +7,7 @@
 \setlength{\oddsidemargin}{-15mm}
 \setlength{\evensidemargin}{0mm}
 \setlength{\topmargin}{-15mm}
-\setlength{\headheight}{6mm}
+\setlength{\headheight}{7mm}
 \setlength{\headsep}{5mm}
 \setlength{\textwidth}{190mm}
 \setlength{\textheight}{260mm} 
@@ -19,11 +19,13 @@ import sys
 sys.path.append('../')#get parent directory
 from sympy import *
 from tex2sym_parser import tex2sym, mylatex, mylatexstyle
-var('a:z') 
 F=Function('F')
+var('a:z') 
+var('A:C')
+var('X:Z') 
 \end{pycode}
 
-% variable : a,b,...,z,\alpha,\beta,\gamma,\theta,\oomega
+% variable : a,b,...,z,A,B,C,X,Y,Z,\alpha,\beta,\gamma,\theta,\oomega
 % constant : pi --> \ppi, imaginary unit --> \ii, napier constant --> \ee
 
 % ply_tex2sym latex expresion style
@@ -39,8 +41,12 @@ F=Function('F')
 % \left| 3 - \ppi \right|
 % a_{n}
 % \{a-2(b-c)\}^2
+% _{10}\P_{3}
+% _{10}\C_{3}
+
 
 \usepackage{amsmath,amssymb}
+%\usepackage{amssymb}%
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -63,11 +69,11 @@ F=Function('F')
 			\pyc{result=simplify(tex2sym(texexpr))}
 			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
 		
-		\item \pyc{texexpr=r'40!'}
+		\item \pyc{texexpr=r'40\,!'}
 			\pyc{result=simplify(tex2sym(texexpr))}
 			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
 		
-		\item \pyc{texexpr=r'_{10}P_{3}'}
+		\item \pyc{texexpr=r'_{10}\P_{3}'}
 			\pyc{result=simplify(tex2sym(texexpr))}
 			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace			
 		
@@ -75,19 +81,24 @@ F=Function('F')
 			\pyc{result=simplify(tex2sym(texexpr))}
 			\py{'$\displaystyle '+mylatexstyle(texexpr).replace(r'\frac',r'\dfrac')+'='+mylatex(result)+'$'}\myvspace
 		
-		\item \pyc{texexpr=r'\frac{1}{~2~}a+0.5a-3a\div 5'}
+		\item \pyc{texexpr=r'-\frac{3}{~5~}a-0.8a+a\div 5\times 8'}
 			\pyc{result=simplify(tex2sym(texexpr))}
 			\py{'$\displaystyle '+mylatexstyle(texexpr).replace(r'\frac',r'\dfrac')+'='+mylatex(factor(tex2sym(texexpr)))+'$'}\myvspace
 		
 		\item \pyc{texexpr=r'2a^3b^4(x-y)^2(x+y)^2'}
 			\pyc{result=expand(tex2sym(texexpr))}
 			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
+			
+			\item \pyc{texexpr=r'ABC(X+Y+Z)^2'}
+			\pyc{result=expand(tex2sym(texexpr))}
+			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
+		
 		
 		\item \pyc{texexpr=r'\left(\frac{1}{~2~}\alpha +\frac{1}{~3~}\beta+\frac{1}{~6~}\gamma \right)^2'}
 			\pyc{result=expand(tex2sym(texexpr))}
 			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
 		
-		\item \pyc{texexpr=r'_{3}C_{0}~a^3+\,_{3}C_{1}~a^2b+\,_{3}C_{2}~ab^2+_{3}C_{3}~b^3'}
+		\item \pyc{texexpr=r'_{3}\C_{0}~a^3+\,_{3}\C_{1}~a^2b+\,_{3}\C_{2}~ab^2+\,_{3}\C_{3}~b^3'}
 			\pyc{result=factor(tex2sym(texexpr))}
 			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
 		
@@ -207,7 +218,6 @@ F=Function('F')
 				
 		\item \pyc{texexpr=r'\left\{\frac{1}{~2~}a-\left(\frac{1}{~3~}b-\frac{1}{~4~}c\right)\right\}^2'}
 		\pyc{result=expand(tex2sym(texexpr))}
-		%\py{'$\displaystyle {:s}$'.format(mylatexstyle(texexpr))}\myvspace	
 		\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
 		
 	\end{enumerate}
