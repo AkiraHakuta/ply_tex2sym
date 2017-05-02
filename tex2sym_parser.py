@@ -76,7 +76,7 @@ def p_expr_paren(p):
     'expr : LPAREN expr RPAREN'
     p[0] = '({})'.format(p[2])
 
-# expr : [a-zA-Z]
+# expr : [a-zABCXYZ]
 def p_expr_symbol(p):
     'expr : ALPHABET'
     p[0] = p[1]
