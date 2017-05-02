@@ -89,7 +89,7 @@ var('X:Z')
 			\pyc{result=expand(tex2sym(texexpr))}
 			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
 			
-			\item \pyc{texexpr=r'ABC(X+Y+Z)^2'}
+		\item \pyc{texexpr=r'ABC(X+Y+Z)^2'}
 			\pyc{result=expand(tex2sym(texexpr))}
 			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
 		
@@ -217,8 +217,8 @@ var('X:Z')
 			
 				
 		\item \pyc{texexpr=r'\left\{\frac{1}{~2~}a-\left(\frac{1}{~3~}b-\frac{1}{~4~}c\right)\right\}^2'}
-		\pyc{result=expand(tex2sym(texexpr))}
-		\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
+			\pyc{result=expand(tex2sym(texexpr))}
+			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
 		
 	\end{enumerate}
 	
