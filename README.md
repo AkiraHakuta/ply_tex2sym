@@ -2,7 +2,7 @@
 
 ply_tex2sym parses LaTeX math expressions and converts it into the equivalent SymPy form by PLY.  
 
-Author:Akira Hakuta,  Date: 2017/05/01  
+Author:Akira Hakuta,  Date: 2017/05/02  
 
 ## Installation (windows)
 
@@ -26,7 +26,7 @@ pip install ply
 python.exe tex2sym_parser.py
    --> Generating LALR tables
    
-variable : a,b,...,z,\alpha,\beta,\gamma,\theta,\oomega
+variable : a,b,...,z,A,B,C,X,Y,Z,\alpha,\beta,\gamma,\theta,\oomega
 constant : pi --> \ppi, imaginary unit --> \ii, napier constant --> \ee
 
 ply_tex2sym LaTeX expression style
@@ -42,7 +42,8 @@ ply_tex2sym LaTeX expression style
 \left| 3 - \ppi \right|
 a_{n}
 \{a-2(b-c)\}^2  
-
+_{10}\P_{3}  
+_{10}\C_{3}  
 
 pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex  
 pythontex.exe example.tex  
@@ -93,16 +94,8 @@ ply も使うので、pip install ply
 
 ### 使い方  
 python.exe tex2sym_parser.py  
-を実行すると、  以下のようなWARNINGメッセージがでるかもしれません、  
-```
-Generating LALR tables
-WARNING: 29 shift/reduce conflicts
-WARNING: 76 reduce/reduce conflicts
-WARNING: reduce/reduce conflict in state 58 resolved using rule (expr -> expr MINUS expr)
-....
-```
-出力をみると  
-tex2sym_parser.tex2sym(texexpr)  
+を実行。出力を見ると  　
+tex2sym_parser.tex2sym(texexpr)  
 でどんな変換ができるか、分かると思います。  
 
 更に  
@@ -226,6 +219,31 @@ pythonは .pth の付いたファイルを読み込んで path を設定しま�
 ```
 underbar を '_' に統一  
 LaTeX の数式コード 中括弧 { } が使用できるように変更
+```  
+
+2017/05/02  
+```
+tex2sym_lexer.py を次のように変更  
+変数として、ABCXYZ が使えるように  
+def t_ALPHABET(t):
+    r'[a-zABCXYZ]'
+    return t      
+
+tex2sym_parser.py を次のように変更  
+
+warnings が表示されないように  
+parser=yacc.yacc(errorlog=yacc.NullLogger())
+
+float の変換を  
+p[0] = 'nsimplify({})'.format(p[1])  
+
+順列、組合せの様式を  
+_{10}\P_{3}
+_{10}\C_{3}
+
+
+
+
 ```
 
 
