@@ -1,4 +1,4 @@
-# tex2sym_lexer.py   Author: Akira Hakuta, Date: 2017/05/01
+# tex2sym_lexer.py   Author: Akira Hakuta, Date: 2017/05/02
 # python.exe tex2sym_lexer.py
 
 from ply import lex
@@ -8,9 +8,10 @@ tokens = ('EXPONENT', 'FACTORIAL', 'MULT', 'DIV', 'PLUS', 'MINUS',
         'LBRACE', 'RBRACE', 'LPAREN', 'RPAREN','UB', 'LBRACKET','RBRACKET',
         'LPIPE', 'RPIPE',
         'PI', 'IMAGINARY_UNIT', 'NAPIER_CONSTANT', 
-        'NN_FLOAT', 'GREEK_CH', 'DX','NN_INTEGER','ALPHABET', 'ALPHABET_CAP',
+        'NN_FLOAT', 'GREEK_CH', 'DX','NN_INTEGER','ALPHABET',
         'LIM', 'INFTY', 'TO', 'DIFF',       
         'F_FRAC', 'F_SQRT',  'F_TRIG','F_TRIG_CAR', 'F_LOG','F_LOG_UB','F_SUM', 'F_INT', 'F_SEQ_TERM',
+        'COMBI_PERMU',
         'EQUAL', 'RELATION',)
 
 # Define `t_ignore` to ignore unnecessary characters between tokens, such as whitespaces.
@@ -113,12 +114,10 @@ def t_F_SEQ_TERM(t):
     return t
     
 def t_ALPHABET(t):
-    r'[a-z]'
+    r'[a-zABCXYZ]'
     return t
     
-def t_ALPHABET_CAP(t):
-    r'[A-Z]'
-    return t
+
    
 def t_DIFF(t):
     r'\\frac\{d\}'
@@ -172,6 +171,11 @@ def t_TO(t):
 def t_F_INT(t):
     r'\\int'
     return t
+    
+def t_COMBI_PERMU(t):
+    r'\\C|\\P'
+    return t
+    
     
 
 
@@ -237,7 +241,7 @@ if __name__ == '__main__':
     print(test_lexer(r'x^2-3x-4 \leq 0'))
     print(test_lexer(r'\left| \left| 3-\ppi \right|-1\right|'))
     print(test_lexer(r'10!'))
-    print(test_lexer(r'_{5}C_{2}'))
-    print(test_lexer(r'_{5}P_{2}'))    
+    print(test_lexer(r'_{5}\C_{2}'))
+    print(test_lexer(r'_{5}\P_{2}'))    
      
     

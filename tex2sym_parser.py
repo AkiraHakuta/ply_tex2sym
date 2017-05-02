@@ -1,4 +1,4 @@
-# tex2sym_parser.py   Author: Akira Hakuta, Date: 2017/05/01
+# tex2sym_parser.py   Author: Akira Hakuta, Date: 2017/05/02
 # python.exe tex2sym_parser.py
 
 from ply import yacc
@@ -8,15 +8,14 @@ from tex2sym_lexer import tokens, lexer
 from sympy import *
 var('a:z') 
 
-# variable : a,b,...,z,\alpha,\beta,\gamma,\theta,\oomega
+# variable : a,b,...,z,A,B,C,X,Y,Z,\alpha,\beta,\gamma,\theta,\oomega
 # constant : pi --> \ppi, imaginary unit --> \ii, napier constant --> \ee
 
 precedence = (
     ('left', 'PLUS', 'MINUS'),
     ('left', 'MULT', 'DIV'),
-    #('left','F_TRIG','F_TRIG_CAR','F_LOG','F_LOG_UB'),
     ('right', 'UPLUS', 'UMINUS'),  
-    ('right', 'EXPONENT'),
+    ('right', 'EXPONENT'),    
     )
 
 
@@ -77,7 +76,7 @@ def p_expr_paren(p):
     'expr : LPAREN expr RPAREN'
     p[0] = '({})'.format(p[2])
 
-# expr : [a-z]
+# expr : [a-zA-Z]
 def p_expr_symbol(p):
     'expr : ALPHABET'
     p[0] = p[1]
@@ -95,7 +94,7 @@ def p_expr_plus_expr(p):
 # expr : -expr
 def p_expr_minus_expr(p):
     'expr : MINUS expr %prec UMINUS' # override precedence of MINUS by `%prec UMINUS`
-    p[0] = '((-1)*({}))'.format(p[2])
+    p[0] = '(-1)*({})'.format(p[2])
     
 # expr : pi
 def p_expr_pi(p):
@@ -125,7 +124,8 @@ def p_expr_integer(p):
 # expr :  \d*\.\d+ 
 def p_expr_float(p):
     'expr : NN_FLOAT'
-    p[0] = 'Rational({})'.format(p[1])
+    #p[0] = 'nsimplify(Rational({}))'.format(p[1])
+    p[0] = 'nsimplify({})'.format(p[1])
         
 # expr : \sqrt{expr}
 def p_expr_sqrt1(p):
@@ -209,10 +209,10 @@ def p_expr_seq_term(p):
           
 # expr : _{expr}C_{expr} |  _{expr}P_{expr}
 def p_expr_combi_or_permutation(p):
-    'expr : UB LBRACE expr RBRACE ALPHABET_CAP UB LBRACE expr RBRACE'
-    if p[5] == 'C':
+    'expr : UB LBRACE expr RBRACE COMBI_PERMU UB LBRACE expr RBRACE'
+    if p[5] == r'\C':
         p[0] = 'binomial({},{})'.format(p[3],p[8])
-    elif p[5] == 'P':
+    elif p[5] == r'\P':
         p[0] = 'ff({},{})'.format(p[3],p[8])
         
 # expr : \left| expr \right|
@@ -247,7 +247,8 @@ def p_error(t):
 
 
 # Generating LALR tables
-parser = yacc.yacc()
+#parser = yacc.yacc()
+parser=yacc.yacc(errorlog=yacc.NullLogger())# to completely silence warnings
 
 import logging
 logging.basicConfig(
@@ -275,7 +276,7 @@ def mylatex(sympyexpr):
     return texexpr
     
 def mylatexstyle(texexpr):
-    replace_list=[[r'\ii',' i'],[r'\ee',' e'],[r'\ppi',r'\pi ']]
+    replace_list=[[r'\ii',' i'],[r'\ee',' e'],[r'\ppi',r'\pi '],[r'\C',r'\mathrm{C}'],[r'\P',r'\mathrm{P}']]
     for le in replace_list:
         texexpr=texexpr.replace(le[0],le[1]) 
     return texexpr
@@ -286,6 +287,7 @@ if __name__ == '__main__':
     print(tex2sym(r'0.5 \times 3 \cdot 4 \div 5'))
     print(tex2sym(r'2*a*b^2*c^3'))
     print(tex2sym(r'2ab^2c^3'))
+    print(tex2sym(r'2AB^2C^3'))
     print(tex2sym(r'\sqrt{3x}'))
     print(tex2sym(r'\frac{2}{3}'))
     print(tex2sym(r'\sin {\ppi x}'))#\sin \ppi x bad
@@ -305,10 +307,11 @@ if __name__ == '__main__':
     print(tex2sym(r'x^2-3x-4 \leq 0'))
     print(tex2sym(r'\left| \left| 3-\ppi \right|-1\right|'))#| | 3 - \ppi | -1 | bad
     print(tex2sym(r'10!'))
-    print(tex2sym(r'_{5}C_{2}'))#_5C_2 bad
-    print(tex2sym(r'_{5}P_{2}'))#_5P_2 bad
+    print(tex2sym(r'_{5}\C_{2}'))#_5C_2 bad
+    print(tex2sym(r'_{5}\P_{2}'))#_5P_2 bad
     print(tex2sym(r'-x^2'))
     print(tex2sym(r'\{a-2(b-c)\}^2'))
     print(tex2sym(r'\left\{a-2(b-c)\right\}^2'))
+    print(tex2sym(r'\left\{A-2(B-C)\right\}^2'))
     
     
