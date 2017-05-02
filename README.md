@@ -224,6 +224,7 @@ LaTeX の数式コード 中括弧 { } が使用できるように変更
 2017/05/02  
 ```
 tex2sym_lexer.py を次のように変更  
+
 変数として、ABCXYZ が使えるように  
 def t_ALPHABET(t):
     r'[a-zABCXYZ]'
