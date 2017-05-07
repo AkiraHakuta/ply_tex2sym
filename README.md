@@ -75,7 +75,7 @@ tex2sym(r'\left| \left| 3-\ppi \right|-1\right|') --> Abs(Abs(3 - pi) - 1)
 
 #### ply_tex2sym は LaTeX の数式コードを解析して、SymPy のコード変換する Python のプログラムツールです。  
 すでに、antlr4 で作られたLaTeX2SymPy <https://github.com/augustt198/latex2sympy> があります。  
-今回、python の構文解析ライブラリ PLY で作ってみました。  
+今回、Python の構文解析ライブラリ PLY で作ってみました。  
 
 ### 各ソフトのインスツール   
 #### TexLive  
@@ -86,12 +86,12 @@ install-tl-windows.exe でインスツールする。
 
 #### Python3  
 まず、<https://www.python.org/downloads/windows/> に入って、  
-python3 の好きなバージョン、32bit、64bitを選び、インスツールして下さい。  
+Python3 の好きなバージョン、32bit、64bitを選び、インスツールして下さい。  
 コマンドプロンプトで   
 pip install sympy  
 と打ち込む。Successfully installed ...　と表示されればOK!    
 \Python35\Lib\site-packagesのなかにパッケージのフォルダができる。    
-ply も使うので、pip install ply  
+PLY も使うので、pip install ply  
 
 ### 使い方  
 python.exe tex2sym_parser.py  
@@ -176,7 +176,7 @@ pythontex について
 \begin{pycode}    
 code    
 \end{pycode}    
-codeの部分にpythonのコードを書き込みます。    
+codeの部分にPythonのコードを書き込みます。    
 
 \pyc{code}はcodeを実行するコマンド。複数のコマンドを実行するのであれば、; を間に入れる。    
 pyはpython、cはcommandの意味。  
@@ -206,7 +206,7 @@ from tex2sym_parser import tex2sym, mylatex, mylatexstyle
 Python35\Lib\site-packages に、例えば、  
 ply_tex2sym-master  
 の1行だけのファイル ply_tex2sym-master.pth を作ります。    
-pythonは .pth の付いたファイルを読み込んで path を設定します。絶対path でもOK。    
+Pythonは .pth の付いたファイルを読み込んで path を設定します。絶対path でもOK。    
 
 
 #### 修正情報
