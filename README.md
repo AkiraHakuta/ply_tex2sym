@@ -101,11 +101,11 @@ tex2sym_parser.tex2sym(texexpr)
 
 更に  
 ```
-pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex
-pythontex.exe example.tex
-pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex
+pdflatex.exe -synctex=1 -interaction=nonstopmode example1.tex
+pythontex.exe example1.tex
+pdflatex.exe -synctex=1 -interaction=nonstopmode example1.tex
 ```
-を実行すると、example.pdf が作成できます。  
+を実行すると、example1.pdf が作成できます。  
 
 ### 各ファイルの説明  
 ### tex2sym_lexer.py 
@@ -247,8 +247,10 @@ p[0] = 'nsimplify({})'.format(p[1])
 順列、組合せの様式を  
 _{10}\P_{3}
 _{10}\C_{3}　
-```　　
-2017/05/07  
+```　
+
+2017/05/07 
+
 ```
 example2.tex  
 を追加  
