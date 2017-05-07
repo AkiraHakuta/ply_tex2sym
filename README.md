@@ -12,9 +12,9 @@ TeX Live:  <http://www.tug.org/texlive/acquire-netinstall.html>
 \texlive\2016\bin\win32\pythontex.exe
 ```
 
-python3: <https://www.python.org/downloads/windows/>  
-sympy : <http://www.sympy.org/en/index.html>  
-ply : <http://www.dabeaz.com/ply/>  
+Python3: <https://www.python.org/downloads/windows/>  
+SymPy : <http://www.sympy.org/en/index.html>  
+PLY : <http://www.dabeaz.com/ply/>  
 ```
 pip install sympy
 pip install ply
