@@ -1,4 +1,4 @@
-# tex2sym_parser.py   Author: Akira Hakuta, Date: 2017/05/02
+# tex2sym_parser.py   Author: Akira Hakuta, Date: 2017/05/07
 # python.exe tex2sym_parser.py
 
 from ply import yacc
@@ -284,7 +284,7 @@ def mylatexstyle(texexpr):
         
 if __name__ == '__main__':
     print(tex2sym(r'2^3'))
-    print(tex2sym(r'0.5 \times 3 \cdot 4 \div 5'))
+    print(tex2sym(r'0.5 \times 3 \div 5 \cdot 4'))
     print(tex2sym(r'2*a*b^2*c^3'))
     print(tex2sym(r'2ab^2c^3'))
     print(tex2sym(r'2AB^2C^3'))
