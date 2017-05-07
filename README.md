@@ -45,14 +45,15 @@ a_{n}
 _{10}\P_{3}  
 _{10}\C_{3}  
 
-pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex  
-pythontex.exe example.tex  
-pdflatex.exe -synctex=1 -interaction=nonstopmode example.tex  
+pdflatex.exe -synctex=1 -interaction=nonstopmode example1.tex  
+pythontex.exe example1.tex  
+pdflatex.exe -synctex=1 -interaction=nonstopmode example1.tex  
 ```
 ## Examples
 
 ```
 tex2sym(r'2^3') --> (2) ** (3)
+tex2sym(r'0.5 \times 3 \div 5 \cdot 4') --> nsimplify(0.5)*3*((5)**(-1))*4
 tex2sym(r'2ab^2c^3') --> 2*a*(b) ** (2)*(c) ** (3)
 tex2sym(r'\sqrt{3x}') --> sqrt(3*x)
 tex2sym(r'\frac{2}{3}') --> (2) * (3)**(-1)
@@ -170,7 +171,7 @@ def p_expr_exponent(p):
 ```
 \left| expr \right| で定義をすることにします。  
 
-### example.tex  
+### example1.tex  
 pythontex について    
 \begin{pycode}    
 code    
@@ -191,6 +192,11 @@ error となる可能性があるため、
 \py{'$\displaystyle {}={}$'.format(mylatexstyle(texexpr),mylatex(result))} を   
 \py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}   
 に変更しました。(2017/04/24)   
+
+### example2.tex 
+具体的な使用例です。  
+
+
 
 ### モジュールのimport    
 他のモジュールと同様に、    
@@ -240,12 +246,15 @@ p[0] = 'nsimplify({})'.format(p[1])
 
 順列、組合せの様式を  
 _{10}\P_{3}
-_{10}\C_{3}
-
-
-
-
+_{10}\C_{3}　
+```　　
+2017/05/07  
 ```
+example2.tex  
+を追加  
+```  
+
+
 
 
 
