@@ -172,18 +172,23 @@ def p_expr_exponent(p):
 \left| expr \right| で定義をすることにします。  
 
 ### example1.tex  
-pythontex について    
-\begin{pycode}    
-code    
-\end{pycode}    
+pythontex について  
+
+\begin{pycode}  
+code  
+\end{pycode}  
+
 codeの部分にPythonのコードを書き込みます。    
 
-\pyc{code}はcodeを実行するコマンド。複数のコマンドを実行するのであれば、; を間に入れる。    
+\pyc{code}  
+
+はcodeを実行するコマンド。複数のコマンドを実行するのであれば、; を間に入れる。    
 pyはpython、cはcommandの意味。  
 
-\py{value}は、valueを可能ならば文字列に変えて出力するコマンドのようです。     
-\py{'text'}と\pyc{print('text')} は共に、文字列 text を出力します。    
+\py{value}  
 
+は、valueを可能ならば文字列に変えて出力するコマンドのようです。  
+\py{'text'}と\pyc{print('text')} は共に、文字列 text を出力します。  
 
 tex2sym_parser.mylatex(sympyexpr), tex2sym_parser.mylatexstyle(texexpr)   
 で一部のギリシャ文字と &pi;, i, e が使える用に、置き換えをしています。  
