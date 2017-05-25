@@ -26,7 +26,7 @@ pip install ply
 python.exe tex2sym_parser.py
    --> Generating LALR tables
    
-variable : a,b,...,z,A,B,C,X,Y,Z,\alpha,\beta,\gamma,\theta,\oomega
+variable : a,b,...,z,A,B,C,X,Y,Z,\alpha,\beta,\gamma,\theta,\omega
 constant : pi --> \ppi, imaginary unit --> \ii, napier constant --> \ee
 
 ply_tex2sym LaTeX expression style
@@ -159,7 +159,7 @@ def p_expr_exponent(p):
 高校数学レベルの数式を対象としました。  
 
 関数 mylatex(sympyexpr),mylatexstyle(texexpr) で  
-変数 : \alpha,\beta,\gamma,\theta,\oomega  
+変数 : \alpha,\beta,\gamma,\theta,\omega  
 定数 : pi --> \ppi, imaginary unit --> \ii, napier constant --> \ee  
 を使えるようにしています。  
 
