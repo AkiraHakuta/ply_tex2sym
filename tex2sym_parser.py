@@ -81,7 +81,7 @@ def p_expr_symbol(p):
     'expr : ALPHABET'
     p[0] = p[1]
     
-# expr : alpha|bbeta|ggamma|delta|epsilon|theta|sigma|omega
+# expr : aalpha|bbeta|ggamma|ttheta|oomega
 def p_expr_greek_ch(p):
     'expr : GREEK_CH'
     p[0] = p[1]
