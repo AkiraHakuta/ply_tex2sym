@@ -8,7 +8,7 @@ from tex2sym_lexer import tokens, lexer
 from sympy import *
 var('a:z') 
 
-# variable : a,b,...,z,A,B,C,X,Y,Z,\alpha,\beta,\gamma,\theta,\oomega
+# variable : a,b,...,z,A,B,C,X,Y,Z,\alpha,\beta,\gamma,\theta,\omega
 # constant : pi --> \ppi, imaginary unit --> \ii, napier constant --> \ee
 
 precedence = (
