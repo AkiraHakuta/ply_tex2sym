@@ -90,8 +90,9 @@ Python3 の好きなバージョン、32bit、64bitを選び、インスツー�
 コマンドプロンプトで   
 pip install sympy  
 と打ち込む。Successfully installed ...　と表示されればOK!    
-\Python35\Lib\site-packagesのなかにパッケージのフォルダができる。    
+\Python34\Lib\site-packagesのなかにパッケージのフォルダができる。    
 PLY も使うので、pip install ply  
+当方は Python 3.4.4 で動作を確認しています。  
 
 ### 使い方  
 python.exe tex2sym_parser.py  
