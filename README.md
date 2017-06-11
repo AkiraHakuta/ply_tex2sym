@@ -52,6 +52,8 @@ pdflatex.exe -synctex=1 -interaction=nonstopmode example11.tex
 ## Examples
 
 ```
+tex2sym: LaTeX math expression --> SymPy form
+
 2^3 --> (2)**(3)
 0.5 \\times 3 \\div 5 \\cdot 4 --> nsimplify(0.5)*3*((5)**(-1))*4
 2*a*b^2*c^3 --> 2*a*(b)**(2)*(c)**(3)
