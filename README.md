@@ -38,7 +38,7 @@ ply_tex2sym LaTeX expression style
 \\int{(x^3+x^2+x+1) dx}
 \\int_{1}^{3}{(x-1)(x-3)^2 dx}
 \\lim_{x \\to -\\infty} {(\\sqrt{x^2+3x}+x)}
-\s\um_{k=1}^{n}{k(k+1)^2}
+\\sum_{k=1}^{n}{k(k+1)^2}
 \\left| 3 - \\ppi \\right|
 a_{n}
 \\{a-2(b-c)\\}^2  
