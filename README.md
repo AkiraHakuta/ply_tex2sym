@@ -2,7 +2,7 @@
 
 ply_tex2sym parses LaTeX math expressions and converts it into the equivalent SymPy form by using PLY.  
 
-Author:Akira Hakuta,  Date: 2017/05/07    
+Author:Akira Hakuta,  Date: 2017/06/11     
 
 ## Installation (windows)
 
@@ -26,28 +26,28 @@ pip install ply
 python.exe tex2sym_parser.py
    --> Generating LALR tables
    
-variable : a,b,...,z,A,B,C,X,Y,Z,\alpha,\beta,\gamma,\theta,\omega
-constant : pi --> \ppi, imaginary unit --> \ii, napier constant --> \ee
+variable : a,b,...,z,A,B,C,X,Y,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega
+constant : pi --> \\ppi, imaginary unit --> \\ii, napier constant --> \\ee
 
 ply_tex2sym LaTeX expression style
-\sin{x}
-\cos^{2}{\theta}
-\log{\ee}
+\\sin{x}
+\\cos^{2}{\theta}
+\\log{\\ee}
 \log_{2}{8}
-\frac{d}{dx}{(x^3+x^2+x+1)}
-\int{(x^3+x^2+x+1) dx}
-\int_{1}^{3}{(x-1)(x-3)^2 dx}
-\lim_{x \to -\infty} {(\sqrt{x^2+3x}+x)}
-\sum_{k=1}^{n}{k(k+1)^2}
-\left| 3 - \ppi \right|
+\\frac{d}{dx}{(x^3+x^2+x+1)}
+\\int{(x^3+x^2+x+1) dx}
+\\int_{1}^{3}{(x-1)(x-3)^2 dx}
+\\lim_{x \\to -\\infty} {(\\sqrt{x^2+3x}+x)}
+\s\um_{k=1}^{n}{k(k+1)^2}
+\\left| 3 - \\ppi \\right|
 a_{n}
-\{a-2(b-c)\}^2  
-_{10}\P_{3}  
-_{10}\C_{3}  
+\\{a-2(b-c)\\}^2  
+_{10}\\P_{3}  
+_{10}\\C_{3}  
 
-pdflatex.exe -synctex=1 -interaction=nonstopmode example1.tex  
-pythontex.exe example1.tex  
-pdflatex.exe -synctex=1 -interaction=nonstopmode example1.tex  
+pdflatex.exe -synctex=1 -interaction=nonstopmode example11.tex  
+pythontex.exe example11.tex  
+pdflatex.exe -synctex=1 -interaction=nonstopmode example11.tex  
 ```
 ## Examples
 
