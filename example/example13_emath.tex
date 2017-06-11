@@ -1,1 +1,102 @@
-% example13_emath.tex   Author: Akira Hakuta, Date: 2017/06/11% platex.exe -kanji=utf8 -shell-escape -src -interaction=nonstopmode example13_emath.tex% pythontex.exe example13_emath.tex% platex.exe -kanji=utf8 -shell-escape -src -interaction=nonstopmode example13_emath.tex% dvipdfmx.exe -p 182mm,257mm example13_emath.dvi\documentclass[b5paper,fleqn,10pt]{jsarticle}\setlength{\oddsidemargin}{-18mm}\setlength{\evensidemargin}{0mm}\setlength{\topmargin}{-18mm}\setlength{\headheight}{6mm}\setlength{\headsep}{2mm}\setlength{\textwidth}{170mm}\setlength{\textheight}{230mm}\setlength{\hoffset}{0mm}\usepackage{pythontex}\begin{pycode}import syssys.path.append('../')#parent directoryfrom sympy import *from tex2sym_parser import tex2sym, mylatex, mylatexstyleF=Function('F')var('a:z') var('A:C')var('X:Z') ans=1 #1-> add answer, 0-> no answerif ans==1:     anscolor='\\color{black}'else:     anscolor='\\color{white}'\end{pycode}\usepackage{emath,emathEy}%\usepackage{fancyhdr}%\renewcommand{\labelenumi}{\large\textgt{\fboxsep2pt\framebox[1.7zw]{\theenumi}}} \renewcommand{\theenumii}{\arabic{enumii}}\def\myvspace{\vspace{26mm}}\newcommand{\myexpr}[2]{\pyc{texexpr=#1}	\pyc{f=tex2sym(texexpr)} 	\hspace{-2mm}\py{'$\displaystyle '+mylatexstyle(texexpr)+'$'}\par\myvspace	\hfill{\py{anscolor}		\py{'(答)~~'+'$\displaystyle '+mylatex(#2(f))+'$'}}\vspace{2mm}}	\newcommand{\myinequality}[1]{\pyc{texexpr=#1}	\pyc{f=tex2sym(texexpr)} 	\hspace{-2mm}\py{'$\displaystyle '+mylatexstyle(texexpr)+'$'}\par\myvspace	\hfill{\py{anscolor}		\py{'(解)~~'+'$\displaystyle '+mylatex(solve_univariate_inequality(simplify(f), x, relational=False))+'$'}}\vspace{2mm}}\begin{document}	\pagestyle{fancy}	\lhead{{\Large\bf 数学I演習}~~ {\large emath~~~No.13}\vspace{-8mm}		\begin{flushright}		1年\underline{\hspace{2zw}}組\underline{\hspace{2zw}}番			\hspace{1zw}氏名\underline{\hspace{12zw}}\end{flushright}}	  	\chead{}  	\renewcommand{\headrulewidth}{0.0pt}	\cfoot{}  	\renewcommand{\footrulewidth}{0pt}  	\begin{enumerate}				 \item 次の式を計算せよ。		 	\begin{edaenumerate}<3>(-2zw)[(1)]			 				 		\item \myexpr{r'2a^3\times 5a^6'}{simplify}		 		\item \myexpr{'(3a^2)^4'}{simplify}		 		\item \myexpr{'(-2x^3y^4)^5'}{simplify}		 	\end{edaenumerate}	 		 	\item 次の式を展開せよ。		 	\begin{edaenumerate}(-2zw)[(1)]			 				 		\item \myexpr{'(2x+3)(4x-5)'}{expand}		 		\item \myexpr{'\\left(\\frac{1}{~2~}\\alpha -\\frac{1}{~3~}\\beta+\\frac{1}{~4~}\\gamma \\right)^2'}{expand}	 		 	\end{edaenumerate}	 		 	\item 次の式を因数分解せよ。		 	\begin{edaenumerate}(-2zw)[(1)]			 				 		\item \myexpr{'3x^2-7x-6'}{factor}		 		\item \myexpr{'a^3+b^3+c^3-3abc'}{factor}	 		\end{edaenumerate} 	 		\item 次の不等式を解け。	 		\begin{edaenumerate}(-2zw)[(1)]			 			 			\item \myinequality{'x^2-3x-4 > 0'}	 			\item \myinequality{'x^3-2x^2-5x+6 \\geqq 0'}	 			\item \myinequality{'3x^2-2x+7 < 0'}	 			\item \myinequality{'\\left|\,3x-4\,\\right|\\leqq 5'}	 				 		\end{edaenumerate} 		\end{enumerate}\end{document}
+% example13_emath.tex   Author: Akira Hakuta, Date: 2017/06/11
+% platex.exe -kanji=utf8 -shell-escape -src -interaction=nonstopmode example13_emath.tex
+% pythontex.exe example13_emath.tex
+% platex.exe -kanji=utf8 -shell-escape -src -interaction=nonstopmode example13_emath.tex
+% dvipdfmx.exe -p 182mm,257mm example13_emath.dvi
+
+\documentclass[b5paper,fleqn,10pt]{jsarticle}
+\setlength{\oddsidemargin}{-18mm}
+\setlength{\evensidemargin}{0mm}
+\setlength{\topmargin}{-18mm}
+\setlength{\headheight}{6mm}
+\setlength{\headsep}{2mm}
+\setlength{\textwidth}{170mm}
+\setlength{\textheight}{230mm}
+\setlength{\hoffset}{0mm}
+
+\usepackage{pythontex}
+
+\begin{pycode}
+import sys
+sys.path.append('../')#parent directory
+from sympy import *
+from tex2sym_parser import tex2sym, mylatex, mylatexstyle
+F=Function('F')
+var('a:z') 
+var('A:C')
+var('X:Z') 
+
+ans=1 #1-> add answer, 0-> no answer
+if ans==1:
+     anscolor='\\color{black}'
+else:
+     anscolor='\\color{white}'
+\end{pycode}
+
+\usepackage{emath,emathEy}%
+
+\usepackage{fancyhdr}%
+
+\renewcommand{\labelenumi}{\large\textgt{\fboxsep2pt\framebox[1.7zw]{\theenumi}}} 
+\renewcommand{\theenumii}{\arabic{enumii}}
+
+\def\myvspace{\vspace{26mm}}
+
+\newcommand{\myexpr}[2]{\pyc{texexpr=#1}
+	\pyc{f=tex2sym(texexpr)} 
+	\hspace{-2mm}\py{'$\displaystyle '+mylatexstyle(texexpr)+'$'}\par\myvspace
+	\hfill{\py{anscolor}
+		\py{'(答)~~'+'$\displaystyle '+mylatex(#2(f))+'$'}}\vspace{2mm}}
+	
+\newcommand{\myinequality}[1]{\pyc{texexpr=#1}
+	\pyc{f=tex2sym(texexpr)} 
+	\hspace{-2mm}\py{'$\displaystyle '+mylatexstyle(texexpr)+'$'}\par\myvspace
+	\hfill{\py{anscolor}
+		\py{'(解)~~'+'$\displaystyle '+mylatex(solve_univariate_inequality(simplify(f), x, relational=False))+'$'}}\vspace{2mm}}
+
+\begin{document}
+	\pagestyle{fancy}
+
+	\lhead{{\Large\bf 数学I演習}~~ {\large emath~~~No.13}\vspace{-8mm}
+		\begin{flushright}
+		1年\underline{\hspace{2zw}}組\underline{\hspace{2zw}}番
+			\hspace{1zw}氏名\underline{\hspace{12zw}}\end{flushright}}	
+  	\chead{}
+  	\renewcommand{\headrulewidth}{0.0pt}
+	\cfoot{}
+  	\renewcommand{\footrulewidth}{0pt}  
+
+	\begin{enumerate}
+		
+		 \item 次の式を計算せよ。
+		 	\begin{edaenumerate}<3>(-2zw)[(1)]			 		
+		 		\item \myexpr{r'2a^3\times 5a^6'}{simplify}
+		 		\item \myexpr{'(3a^2)^4'}{simplify}
+		 		\item \myexpr{'(-2x^3y^4)^5'}{simplify}
+		 	\end{edaenumerate}
+	 	
+	 	\item 次の式を展開せよ。
+		 	\begin{edaenumerate}(-2zw)[(1)]			 		
+		 		\item \myexpr{'(2x+3)(4x-5)'}{expand}
+		 		\item \myexpr{'\\left(\\frac{1}{~2~}\\alpha -\\frac{1}{~3~}\\beta+\\frac{1}{~4~}\\gamma \\right)^2'}{expand}	 
+		 	\end{edaenumerate}
+	 	
+	 	\item 次の式を因数分解せよ。
+		 	\begin{edaenumerate}(-2zw)[(1)]			 		
+		 		\item \myexpr{'3x^2-7x-6'}{factor}
+		 		\item \myexpr{'a^3+b^3+c^3-3abc'}{factor}
+	 		\end{edaenumerate}
+ 	
+ 		\item 次の不等式を解け。
+	 		\begin{edaenumerate}(-2zw)[(1)]			 		
+	 			\item \myinequality{'x^2-3x-4 > 0'}
+	 			\item \myinequality{'x^3-2x^2-5x+6 \\geqq 0'}
+	 			\item \myinequality{'3x^2-2x+7 < 0'}
+	 			\item \myinequality{'\\left|\,3x-4\,\\right|\\leqq 5'}	 			
+	 		\end{edaenumerate}
+ 	
+	\end{enumerate}
+
+\end{document}
+
+
