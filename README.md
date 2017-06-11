@@ -218,7 +218,7 @@ error となる可能性があるため、
 ### example12.tex 
 具体的な使用例です。  
 多段組enumerateをtabularxで実現しています。  
-pythonにLaTeXのコードをr'\frac{1}{2}'の形で渡すとERRORになることがあります。  
+pythonにLaTeXのコードをr'\frac{1}{2}'の形で渡すとERRORになることがあります。  
 '\\\\frac{1}{2}'を使ってください。  
 
 ### example13_emath.tex
