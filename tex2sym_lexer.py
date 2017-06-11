@@ -1,4 +1,4 @@
-# tex2sym_lexer.py   Author: Akira Hakuta, Date: 2017/05/02
+# tex2sym_lexer.py   Author: Akira Hakuta, Date: 2017/06/11
 # python.exe tex2sym_lexer.py
 
 from ply import lex
@@ -184,7 +184,7 @@ def t_EQUAL(t):
     return t
     
 def t_RELATION(t):
-    r'>|<|\\geq|\\leq'
+    r'>|<|\\geqq|\\leqq'
     return t
     
 
@@ -217,31 +217,31 @@ def test_lexer(input_string):
     return result
 
 if __name__ == '__main__':
-    print(test_lexer(r'123.456'))
-    print(test_lexer(r'2^3'))
-    print(test_lexer(r'0.5 \times 3 \cdot 4 \div 5'))
-    print(test_lexer(r'2*a*b^2*c^3'))
-    print(test_lexer(r'2ab^2c^3'))
-    print(test_lexer(r'\sqrt{3x}'))
-    print(test_lexer(r'\frac{2}{3}'))
-    print(test_lexer(r'\sin {\ppi x}'))
-    print(test_lexer(r'\sin {x} \cos {x} \tan {x}'))
-    print(test_lexer(r'\sin {x} + \cos {x} + \tan {x}'))
-    print(test_lexer(r'\sin^{2}{x} \cos^{2}{x} \tan^{2}{x}'))#\sin^k x, \cos^{10} x bad 
-    print(test_lexer(r'\sin^{3}{x} + \cos^{3}{x} + \tan^{3}{x}'))  
-    print(test_lexer(r'\log{\ee^3}'))#\log \ee^3 bad
-    print(test_lexer(r'\log_{2}{8}'))#\log_2 8 bad 
-    print(test_lexer(r'\frac{d}{dx}{x^3}'))
-    print(test_lexer(r'\int{\sin^{2}{x} dx}'))
-    print(test_lexer(r'\int_{1}^{3}{(x-1)(x-3)^2 dx}')) 
-    print(test_lexer(r'\sum_{k=1}^{n}{k^3}'))
-    print(test_lexer(r'\lim_{x \to -\infty}{(\sqrt{x^2+3x}+x)}'))
-    print(test_lexer(r'12a_{n+1}-35a_{n}'))
-    print(test_lexer(r'2x^2+3x+4=0'))
-    print(test_lexer(r'x^2-3x-4 \leq 0'))
-    print(test_lexer(r'\left| \left| 3-\ppi \right|-1\right|'))
-    print(test_lexer(r'10!'))
-    print(test_lexer(r'_{5}\C_{2}'))
-    print(test_lexer(r'_{5}\P_{2}'))    
+    print(test_lexer('123.456'))
+    print(test_lexer('2^3'))
+    print(test_lexer('0.5 \\times 3 \\cdot 4 \\div 5'))
+    print(test_lexer('2*a*b^2*c^3'))
+    print(test_lexer('2ab^2c^3'))
+    print(test_lexer('\\sqrt{3x}'))
+    print(test_lexer('\\frac{2}{3}'))
+    print(test_lexer('\\sin {\\ppi x}'))
+    print(test_lexer('\\sin {x} \\cos {x} \\tan {x}'))
+    print(test_lexer('\\sin {x} + \\cos {x} + \\tan {x}'))
+    print(test_lexer('\\sin^{2}{x} \\cos^{2}{x} \\tan^{2}{x}'))#\sin^k x, \cos^{10} x bad 
+    print(test_lexer('\\sin^{3}{x} + \\cos^{3}{x} + \\tan^{3}{x}'))  
+    print(test_lexer('\\log{\\ee^3}'))#\log \ee^3 bad
+    print(test_lexer('\\log_{2}{8}'))#\log_2 8 bad 
+    print(test_lexer('\\frac{d}{dx}{x^3}'))
+    print(test_lexer('\\int{\\sin^{2}{x} dx}'))
+    print(test_lexer('\\int_{1}^{3}{(x-1)(x-3)^2 dx}')) 
+    print(test_lexer('\\sum_{k=1}^{n}{k^3}'))
+    print(test_lexer('\\lim_{x \\to -\\infty}{(\\sqrt{x^2+3x}+x)}'))
+    print(test_lexer('12a_{n+1}-35a_{n}'))
+    print(test_lexer('2x^2+3x+4=0'))
+    print(test_lexer('x^2-3x-4 \\leqq 0'))
+    print(test_lexer('\\left| \\left| 3-\\ppi \\right|-1\\right|'))
+    print(test_lexer('10!'))
+    print(test_lexer('_{5}\\C_{2}'))
+    print(test_lexer('_{5}\\P_{2}'))    
      
     
