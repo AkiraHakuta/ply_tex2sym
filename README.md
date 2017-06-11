@@ -118,11 +118,11 @@ tex2sym_parser.tex2sym(texexpr)
 
 更に  
 ```
-pdflatex.exe -synctex=1 -interaction=nonstopmode example1.tex
-pythontex.exe example1.tex
-pdflatex.exe -synctex=1 -interaction=nonstopmode example1.tex
+pdflatex.exe -synctex=1 -interaction=nonstopmode example11.tex
+pythontex.exe example11.tex
+pdflatex.exe -synctex=1 -interaction=nonstopmode example11.tex
 ```
-を実行すると、example1.pdf が作成できます。  
+を実行すると、example11.pdf が作成できます。  
 
 ### 各ファイルの説明  
 ### tex2sym_lexer.py 
@@ -188,7 +188,7 @@ def p_expr_exponent(p):
 ```
 \left| expr \right| で定義をすることにします。  
 
-### example1.tex  
+### example11.tex  
 pythontex について  
 
 \begin{pycode}  
@@ -215,7 +215,7 @@ error となる可能性があるため、
 \py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}   
 に変更しました。(2017/04/24)   
 
-### example2.tex 
+### example12.tex 
 具体的な使用例です。  
 
 
