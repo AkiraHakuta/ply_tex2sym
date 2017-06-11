@@ -286,7 +286,6 @@ def test(texexpr):
     
 if __name__ == '__main__':
     test('2^3')
-    test('2^3')
     test('0.5 \\times 3 \\div 5 \\cdot 4')
     test('2*a*b^2*c^3')
     test('2ab^2c^3')
