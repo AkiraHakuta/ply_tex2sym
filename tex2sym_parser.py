@@ -3,7 +3,7 @@
 
 from ply import yacc
 # Get the token map
-from tex2sym2_lexer import tokens, lexer
+from tex2sym_lexer import tokens, lexer
 
 from sympy import *
 var('a:z') 
