@@ -219,7 +219,10 @@ error となる可能性があるため、
 具体的な使用例です。  
 多段組enumerateをtabularxで実現しています。  
 pythonにLaTeXのコードをr'\frac{1}{2}'で渡すとERRORになることがあります。  
-'\\frac{1}{2}'に変更してください。  
+'\\frac{1}{2}'を使ってください。  
+
+### example13_emath.tex
+ 具体的な使用例 (platex + emath) です。
 
 
 
