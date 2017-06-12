@@ -14,6 +14,7 @@
 \setlength{\textheight}{230mm}
 \setlength{\hoffset}{0mm}
 
+\usepackage{color}
 \usepackage{pythontex}
 
 \begin{pycode}
@@ -28,9 +29,9 @@ var('X:Z')
 
 ans=1 #1-> add answer, 0-> no answer
 if ans==1:
-     anscolor='\\color{black}'
+       anscolor='\\color{black}'
 else:
-     anscolor='\\color{white}'
+       anscolor='\\color{white}'
 \end{pycode}
 
 \usepackage{emath,emathEy}%
@@ -40,7 +41,7 @@ else:
 \renewcommand{\labelenumi}{\large\textgt{\fboxsep2pt\framebox[1.7zw]{\theenumi}}} 
 \renewcommand{\theenumii}{\arabic{enumii}}
 
-\def\myvspace{\vspace{26mm}}
+\def\myvspace{\vspace{24mm}}
 
 \newcommand{\myexpr}[2]{\pyc{texexpr=#1}
 	\pyc{f=tex2sym(texexpr)} 
