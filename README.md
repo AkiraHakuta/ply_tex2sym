@@ -224,10 +224,8 @@ error となる可能性があるため、
 
 ### example13_emath.tex  
 
- 具体的な使用例 (platex + emath) です。
- emath <http://emath.s40.xrea.com>
-
-
+ 具体的な使用例 (platex + emath) です。  
+ emath <http://emath.s40.xrea.com>  
 
 ### モジュールのimport    
 他のモジュールと同様に、    
