@@ -97,7 +97,7 @@ _{5}\\P_{2} --> ff(5,2)
 #### TexLive  
 <https://www.tug.org/texlive/acquire-netinstall.html>  
 install-tl-windows.exe でインスツールする。  
-\texlive\2016\bin\win32の中にpythontex.exeがあります。  
+\texlive\2017\bin\win32の中にpythontex.exeがあります。  
 これを使う！  
 
 #### Python3  
@@ -222,9 +222,10 @@ error となる可能性があるため、
 その場合は、'\\\\frac{1}{2}'を使ってください。  
 
 
-### example13_emath.tex
- 具体的な使用例 (platex + emath) です。
+### example13_emath.tex  
 
+ 具体的な使用例 (platex + emath) です。
+ emath <http://emath.s40.xrea.com>
 
 
 
