@@ -90,7 +90,8 @@ _{5}\\P_{2} --> ff(5,2)
 ### in japanese
 
 #### ply_tex2sym は LaTeX の数式コードを解析して、SymPy のコード変換する Python のプログラムツールです。  
-すでに、antlr4 で作られたLaTeX2SymPy <https://github.com/augustt198/latex2sympy> があります。  
+すでに、antlr4 で作られた  
+LaTeX2SymPy <https://github.com/augustt198/latex2sympy> があります。  
 今回、Python の構文解析ライブラリ PLY で作ってみました。  
 
 ### 各ソフトのインスツール   
