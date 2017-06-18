@@ -9,13 +9,14 @@ Author:Akira Hakuta,  Date: 2017/06/11     
 TeX Live:  <http://www.tug.org/texlive/acquire-netinstall.html>
 
 ```
-\texlive\2016\bin\win32\pythontex.exe
+\texlive\2017\bin\win32\pythontex.exe
 ```
 
 Python3: <https://www.python.org/downloads/windows/>  
 SymPy : <http://www.sympy.org/en/index.html>  
 PLY : <http://www.dabeaz.com/ply/>  
 ```
+pip install pygments
 pip install sympy
 pip install ply
 ```
