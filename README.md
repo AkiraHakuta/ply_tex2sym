@@ -117,7 +117,11 @@ pip install ply
 python.exe tex2sym_parser.py  
 を実行。出力を見ると  
 tex2sym_parser.tex2sym(texexpr)  
-でどんな変換ができるか、分かると思います。    
+でどんな変換ができるか、分かると思います。 
+※ LaTeX の数式コード texexpr は  
+ ply_tex2sym LaTeX expression style  の形で入力してください。  
+ つまり、関数の引数は { } でくくって下さい。例 '\\sin{x}', '\\int_{1}^{2}{x^3 dx}'。  
+ 
 
 更に  
 ```
