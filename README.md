@@ -169,7 +169,7 @@ def t_NN_FLOAT(t):
 
 ### tex2sym_parser.py   
 ply.yacc.yacc() は 構文解析器を構築します。  
-これを用いて、定義されたルールに従って、LaTex の数式コードを SymPy のコード変換します。  
+これを用いて、定義されたルールに従って、LaTeX の数式コードを SymPy のコード変換します。  
 ```
 # expr : expr^expr
 def p_expr_exponent(p):
