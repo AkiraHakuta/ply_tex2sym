@@ -1,4 +1,4 @@
-# tex2sym_lexer.py   Author: Akira Hakuta, Date: 2017/06/11
+# tex2sym_lexer.py   Author: Akira Hakuta, Date: 2017/07/13
 # python.exe tex2sym_lexer.py
 
 from ply import lex
@@ -120,13 +120,13 @@ def t_ALPHABET(t):
 
    
 def t_DIFF(t):
-    r'\\frac\{d\}'
+    r'\\frac\{d\}|\\dfrac\{d\}'
     return t    
  
 def t_F_FRAC(t):
-    r'\\frac'
+    r'\\frac|\\dfrac'
     return t
-         
+             
 def t_F_SQRT(t):
     r'\\sqrt'
     return t
@@ -224,6 +224,7 @@ if __name__ == '__main__':
     print(test_lexer('2ab^2c^3'))
     print(test_lexer('\\sqrt{3x}'))
     print(test_lexer('\\frac{2}{3}'))
+    print(test_lexer('\\dfrac{2}{3}'))
     print(test_lexer('\\sin {\\ppi x}'))
     print(test_lexer('\\sin {x} \\cos {x} \\tan {x}'))
     print(test_lexer('\\sin {x} + \\cos {x} + \\tan {x}'))

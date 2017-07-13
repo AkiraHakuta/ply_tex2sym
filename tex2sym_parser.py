@@ -1,4 +1,4 @@
-# tex2sym_parser.py   Author: Akira Hakuta, Date: 2017/06/11
+# tex2sym_parser.py   Author: Akira Hakuta, Date: 2017/07/13
 # python.exe tex2sym_parser.py
 
 from ply import yacc
@@ -138,10 +138,10 @@ def p_expr_sqrt2(p):
     #p[0] = '(root(({}),({})))'.format(p[6],p[3])
     p[0] = '(({})**(({})**(-1)))'.format(p[6],p[3])
 
-# expr : \\frac{expr}{expr}
+# expr : \\frac{expr}{expr}   expr : \\dfrac{expr}{expr}
 def p_expr_frac(p):
     'expr : F_FRAC LBRACE expr RBRACE LBRACE expr RBRACE'
-    p[0] = '({}) * ({})**(-1)'.format(p[3], p[6])   
+    p[0] = '({}) * ({})**(-1)'.format(p[3], p[6])    
 
 # expr : \\sin{expr} | \\cos{expr} | \\tan{expr} 
 def p_expr_f_trigonometric(p):
@@ -292,6 +292,7 @@ if __name__ == '__main__':
     test('2AB^2C^3')
     test('\\sqrt{3x}')
     test('\\frac{2}{3}')
+    test('\\dfrac{2}{3}')
     test('\\sin {\\ppi x}')#\sin \ppi x bad
     test('\\sin {x} \\cos {x} \\tan {x}')
     test('\\sin {x} + \\cos {x} + \\tan {x}')
@@ -315,5 +316,6 @@ if __name__ == '__main__':
     test('\\{a-2(b-c)\\}^2')
     test('\\left\\{a-2(b-c)\\right\\}^2')
     test('\\left\\{A-2(B-C)\\right\\}^2')
+    test(r'\int{t^2\log{t} \,dt}')
     
     
