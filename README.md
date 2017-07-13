@@ -2,7 +2,7 @@
 
 ply_tex2sym parses LaTeX math expressions and converts it into the equivalent SymPy form by using PLY.  
 
-Author:Akira Hakuta,  Date: 2017/06/18      
+Author:Akira Hakuta,  Date: 2017/07/13      
 
 ## Installation (windows)
 
@@ -296,7 +296,14 @@ example12.tex を追加
 
 ```
 多段組enumerateで出る不具合を修正  
-```  
+```
+
+2017/07/13 
+
+```
+\dfrac を 追加  
+```    
+
 
 
 
