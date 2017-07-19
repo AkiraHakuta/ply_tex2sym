@@ -223,6 +223,9 @@ error となる可能性があるため、
 
  具体的な使用例 (platex + emath) です。  
  emath <http://emath.s40.xrea.com>  
+ 
+ ### example14.tex
+ 高次微分、ガンマ関数、ゼータ関数 、微分方程式の使用例
 
 ### モジュールのimport    
 他のモジュールと同様に、    
