@@ -7,7 +7,7 @@ from tex2sym_lexer import tokens, lexer
 
 from sympy import * 
 
-# variable : a,b,...,z,A,B,...,D,  F,G,...,Y,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega
+# variable : a,b,...,z,A,B,...,D,  F,G,...,R, T,U,..,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega
 # constant : pi --> \\ppi, imaginary unit --> \\ii, napier constant --> \\ee
 
 precedence = (
