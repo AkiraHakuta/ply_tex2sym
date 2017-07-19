@@ -27,7 +27,7 @@ pip install ply
 python.exe tex2sym_parser.py
    --> Generating LALR tables
    
-variable : a,b,...,z,A,B,...,D,  F,G,...,R, T,U,..,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega  
+variable : a,b,...,z,A,B,...,D,  F,G,H, J,...,R, T,U,..,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega  
 constant : pi --> \\ppi, imaginary unit --> \\ii, napier constant --> \\ee
 
 ply_tex2sym LaTeX expression style
@@ -185,7 +185,7 @@ def p_expr_exponent(p):
 ```
 \left| expr \right| で定義をすることにします。  
 
-※ E,S は変数としては使えません。(sympy.E, sympy.S と衝突してしまうので)
+※ E,I,S は変数としては使えません。(sympy.E, sympy.I, sympy.S と衝突してしまうので)
 
 ### example11.tex  
 pythontex について  
