@@ -169,8 +169,7 @@ def p_expr_exponent(p):
 で tex2sym(r'2^3') --> (2) ** (3) となります。  
 ’expr : expr EXPONENT expr' は意味のある文字列で、  
 上記コメントのように、配列pの各要素とシンボル expr,EXPONENT の値が対応しています。  
-二重根号、繁分数式 等が正しく処理できるように、必要なp_ 関数を定義していきます。  
-高校数学レベルの数式を対象としました。  
+二重根号、繁分数式 等が正しく処理できるように、必要なp_ 関数を定義していきます。    
 
 関数 mylatex(sympyexpr),mylatexstyle(texexpr) で  
 変数 : \alpha,\beta,\gamma,\theta,\omega  
