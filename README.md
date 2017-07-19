@@ -2,7 +2,7 @@
 
 ply_tex2sym parses LaTeX math expressions and converts it into the equivalent SymPy form by using PLY.  
 
-Author:Akira Hakuta,  Date: 2017/07/13      
+Author:Akira Hakuta,  Date: 2017/07/19      
 
 ## Installation (windows)
 
@@ -27,7 +27,7 @@ pip install ply
 python.exe tex2sym_parser.py
    --> Generating LALR tables
    
-variable : a,b,...,z,A,B,C,X,Y,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega
+variable : a,b,...,z,A,B,...,D,  F,G,...,Y,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega  
 constant : pi --> \\ppi, imaginary unit --> \\ii, napier constant --> \\ee
 
 ply_tex2sym LaTeX expression style
@@ -45,6 +45,10 @@ a_{n}
 \\{a-2(b-c)\\}^2  
 _{10}\\P_{3}  
 _{10}\\C_{3}  
+(\\frac{d}{dx})^{3}{x^5}  
+\\frac{d^{3}}{dx^{3}}{x^5}  
+\\Gamma(5)  
+\\zeta(10)  
 
 pdflatex.exe -synctex=1 -interaction=nonstopmode example11.tex  
 pythontex.exe example11.tex  
