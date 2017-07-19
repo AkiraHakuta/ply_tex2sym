@@ -1,0 +1,98 @@
+% example14.tex   Author: Akira Hakuta, Date: 2017/07/19
+% pdflatex.exe -synctex=1 -interaction=nonstopmode example14.tex
+% pythontex.exe example14.tex
+% pdflatex.exe -synctex=1 -interaction=nonstopmode example14.tex 
+
+\documentclass[a4paper, 12pt]{article}
+\setlength{\oddsidemargin}{-15mm}
+\setlength{\evensidemargin}{0mm}
+\setlength{\topmargin}{-15mm}
+\setlength{\headheight}{7mm}
+\setlength{\headsep}{5mm}
+\setlength{\textwidth}{190mm}
+\setlength{\textheight}{260mm} 
+\setlength{\hoffset}{0mm}
+
+\usepackage{pythontex}
+\begin{pycode}
+import sys
+sys.path.append('../')#parent directory
+from sympy import *
+from tex2sym_parser import tex2sym, mylatex, mylatexstyle
+F=Function('F')
+f=Function('f')
+var('a:z') 
+var('A:E')
+var('X:Z') 
+\end{pycode}
+
+
+\usepackage{amsmath,amssymb}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\large\bf ply\_tex2sym example~14~~~No.\thepage}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.0pt}
+
+\renewcommand{\labelenumi}{(\arabic{enumi})~~}
+\def\myvspace{\vspace{9mm}}
+
+\begin{document} 
+	   
+	\begin{enumerate}				 		
+		\item \pyc{texexpr=r'\int_{0}^{1}{\int_{y}^{2y}{(x^2+y^2+1) \,dx} \,dy}'}
+			\pyc{result=simplify(tex2sym(texexpr))}
+			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
+			
+		\item \pyc{texexpr=r'\int_{-1}^{1}{\int_{0}^{\sqrt{1-x^2}}{x^2y \,dy} \,dx}'}
+			\pyc{result=simplify(tex2sym(texexpr))}
+			\py{'$\displaystyle {:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
+			
+		\item \pyc{texexpr=r'\left(\dfrac{d}{dx}\right)^{4}{x^5}'}
+			\pyc{result=simplify(tex2sym(texexpr))}
+			\py{'${:s}=\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
+			
+		\item \pyc{texexpr=r'\dfrac{d^{\,2}}{dx^{2}}{\,x^5}'}
+			\pyc{result=simplify(tex2sym(texexpr))}
+			\py{'${:s}=\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace
+			
+		\item \pyc{texexpr=r'\dfrac{d^{\,3}}{d\theta^{3}}{\,(\theta\cos {\theta})}'}
+			\pyc{result=simplify(tex2sym(texexpr))}
+			\py{'${:s}=\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace
+			
+		\item \pyc{texexpr=r'\dfrac{d}{dx}{\,f(x)}+2f(x)=3\ee^{4x}'}
+			\pyc{result=dsolve(simplify(tex2sym(texexpr)),f(x))}
+			\py{'${:s}$'.format(mylatexstyle(texexpr))}\hfill
+			\py{'$\displaystyle {:s}$'.format(mylatex(result))}\myvspace
+			
+		\item \pyc{texexpr=r'\dfrac{d^{\,2}}{dx^{2}}{\,f(x)}=-f(x)'}
+			\pyc{result=dsolve(simplify(tex2sym(texexpr)),f(x))}
+			\py{'${:s}$'.format(mylatexstyle(texexpr))}\hfill
+			\py{'$\displaystyle {:s}$'.format(mylatex(result))}\myvspace			
+			
+		\item \pyc{texexpr=r'\dfrac{d^{\,2}}{dx^{2}}{\,f(x)}-2\dfrac{d}{dx}{\,f(x)}+f(x)=\sin{x}'}
+			\pyc{result=dsolve(simplify(tex2sym(texexpr)),f(x))}
+			\py{'${:s}$'.format(mylatexstyle(texexpr))}\hfill
+			\py{'$\displaystyle {:s}$'.format(mylatex(result))}\myvspace
+			
+		\item \pyc{texexpr=r'\Gamma(5)'}
+			\pyc{result=simplify(tex2sym(texexpr))}
+			\py{'${:s}=\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace
+			
+		\item \pyc{texexpr=r'\Gamma\left(-\dfrac{3}{\,2\,}\right)'}
+			\pyc{result=simplify(tex2sym(texexpr))}
+			\py{'${:s}=\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace
+			
+		\item \pyc{texexpr=r'\zeta(2)'}
+			\pyc{result=simplify(tex2sym(texexpr))}
+			\py{'${:s}=\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace
+			
+		\item \pyc{texexpr=r'\zeta(10)'}
+			\pyc{result=simplify(tex2sym(texexpr))}
+			\py{'${:s}=\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace			
+		
+	\end{enumerate}
+	
+\end{document}

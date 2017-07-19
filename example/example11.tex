@@ -1,4 +1,4 @@
-% example11.tex   Author: Akira Hakuta, Date: 2017/07/13
+% example11.tex   Author: Akira Hakuta, Date: 2017/07/19
 % pdflatex.exe -synctex=1 -interaction=nonstopmode example11.tex
 % pythontex.exe example11.tex
 % pdflatex.exe -synctex=1 -interaction=nonstopmode example11.tex 
@@ -18,14 +18,14 @@
 import sys
 sys.path.append('../')#parent directory
 from sympy import *
-from tex2sym_parser import tex2sym, mylatex, mylatexstyle
+from tex2sym_parser2 import tex2sym, mylatex, mylatexstyle
 F=Function('F')
 var('a:z') 
 var('A:C')
 var('X:Z') 
 \end{pycode}
 
-% variable : a,b,...,z,A,B,C,X,Y,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega
+% variable : a,b,...,z,A,B,...,D,  F,G,...,Y,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega
 % constant : pi --> \\ppi, imaginary unit --> \\ii, napier constant --> \\ee
 
 % ply_tex2sym latex expresion style
@@ -43,6 +43,10 @@ var('X:Z')
 % \\{a-2(b-c)\\}^2
 % _{10}\\P_{3}
 % _{10}\\C_{3}
+% (\\frac{d}{dx})^{3}{x^5}
+% \\frac{d^{3}}{dx^{3}}{x^5}
+% \\Gamma(5)
+% \\zeta(10)
 
 \usepackage{amsmath,amssymb}
 
@@ -191,24 +195,30 @@ var('X:Z')
 		\item \pyc{texexpr = 'a_{n+1}=3a_{n}+12'}    
 			\pyc{a1=3}  
 			\pyc{result=rsolve(simplify(tex2sym(texexpr)),F(n), {F(1):a1})}
-			\py{'${:s},~~a_1={:d},~~~~solution:~a_n={:s}$'.format(mylatexstyle(texexpr),a1,mylatex(result))}\myvspace	
+			\py{'${:s},~~a_1={:d}$'.format(mylatexstyle(texexpr),a1)}\hfill
+			\py{'$solution:~a_n={:s}$'.format(mylatex(result))}\myvspace
 		
 		\item \pyc{texexpr = 'a_{n+2}=12a_{n+1}-35a_{n}'}    
 			\pyc{a1=2; a2=24}  
 			\pyc{result=rsolve(simplify(tex2sym(texexpr)),F(n), {F(1):a1,F(2):a2})}
-			\py{'${:s},~~a_1={:d},~a_2={:d}~~~~solution:~a_n={:s}$'.format(mylatexstyle(texexpr),a1,a2,mylatex(result))}\myvspace			
+			\py{'${:s},~~a_1={:d},~a_2={:d}$'.format(mylatexstyle(texexpr), a1, a2)}\hfill
+			\py{'$solution:~a_n={:s}$'.format(mylatex(result))}\myvspace			
 		
 		\item \pyc{texexpr='2x^2+3x+4=0'}
 			\pyc{result=solveset(tex2sym(texexpr), x,  domain=S.Complexes )}
-			\py{'${:s},~~~~solution:~\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
+			\py{'${:s}$'.format(mylatexstyle(texexpr))}\hfill	
+			\py{'$solution:~\displaystyle {:s}$'.format(mylatex(result))}\myvspace	
 		
 		\item \pyc{texexpr=r'x^2-3x-4 \leqq 0'}
 			\pyc{result=solve_univariate_inequality(simplify(tex2sym(texexpr)), x, relational=False)}
-			\py{'${:s},~~~~solution:~\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace	
+			\py{'${:s}$'.format(mylatexstyle(texexpr))}\hfill	
+			\py{'$solution:~\displaystyle {:s}$'.format(mylatex(result))}\myvspace	
 		
 		\item \pyc{texexpr=r'x^3-2x^2-5x+6 \geqq 0'}
 			\pyc{result=solve_univariate_inequality(simplify(tex2sym(texexpr)), x, relational=False)}
-			\py{'${:s},~~~~solution:~\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace				
+			\py{'${:s}$'.format(mylatexstyle(texexpr))}\hfill	
+			\py{'$solution:~\displaystyle {:s}$'.format(mylatex(result))}\myvspace	
+						
 		\item \pyc{texexpr='-x^2-x^2'}
 			\pyc{result=simplify(tex2sym(texexpr))}
 			\py{'${:s}={:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace			
