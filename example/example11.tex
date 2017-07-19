@@ -20,9 +20,10 @@ sys.path.append('../')#parent directory
 from sympy import *
 from tex2sym_parser import tex2sym, mylatex, mylatexstyle
 F=Function('F')
+f=Function('f')
 var('a:z') 
-var('A:C')
-var('X:Z') 
+var('A:D')
+var('F:Z') 
 \end{pycode}
 
 % variable : a,b,...,z,A,B,...,D,  F,G,...,Y,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega
@@ -47,6 +48,7 @@ var('X:Z')
 % \\frac{d^{3}}{dx^{3}}{x^5}
 % \\Gamma(5)
 % \\zeta(10)
+% f(x) function, not f*(x)
 
 \usepackage{amsmath,amssymb}
 
