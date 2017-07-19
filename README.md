@@ -27,7 +27,7 @@ pip install ply
 python.exe tex2sym_parser.py
    --> Generating LALR tables
    
-variable : a,b,...,z,A,B,...,D,  F,G,H, J,...,R, T,U,..,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega  
+variable : a,b,...,z,A,B,...,D,  F,G,H, J,...,R, T,U,..,Z,\\alpha,\\beta,\\gamma,\\theta,\\omega  (except E,I,S)
 constant : pi --> \\ppi, imaginary unit --> \\ii, napier constant --> \\ee
 
 ply_tex2sym LaTeX expression style
