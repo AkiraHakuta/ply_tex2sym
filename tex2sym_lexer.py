@@ -142,7 +142,7 @@ def t_FUNCTION(t):
   
     
 def t_ALPHABET(t):
-    r'[a-zA-DF-Z]'
+    r'[a-zA-DFGHJ-RT-Z]'
     return t
     
 
