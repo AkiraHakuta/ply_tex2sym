@@ -1,4 +1,4 @@
-% example14.tex   Author: Akira Hakuta, Date: 2017/07/19
+% example14.tex   Author: Akira Hakuta, Date: 2017/07/21
 % pdflatex.exe -synctex=1 -interaction=nonstopmode example14.tex
 % pythontex.exe example14.tex
 % pdflatex.exe -synctex=1 -interaction=nonstopmode example14.tex 
@@ -66,11 +66,6 @@ var('A:DFGHJ:RT:Z')
 			\py{'${:s}$'.format(mylatexstyle(texexpr))}\hfill
 			\py{'$\displaystyle {:s}$'.format(mylatex(result))}\myvspace
 			
-		\item \pyc{texexpr=r'\dfrac{d^{\,2}}{dx^{2}}{\,f(x)}=-f(x)'}
-			\pyc{result=dsolve(simplify(tex2sym(texexpr)),f(x))}
-			\py{'${:s}$'.format(mylatexstyle(texexpr))}\hfill
-			\py{'$\displaystyle {:s}$'.format(mylatex(result))}\myvspace			
-			
 		\item \pyc{texexpr=r'\dfrac{d^{\,2}}{dx^{2}}{\,f(x)}-2\dfrac{d}{dx}{\,f(x)}+f(x)=\sin{x}'}
 			\pyc{result=dsolve(simplify(tex2sym(texexpr)),f(x))}
 			\py{'${:s}$'.format(mylatexstyle(texexpr))}\hfill
@@ -81,6 +76,10 @@ var('A:DFGHJ:RT:Z')
 			\py{'${:s}=\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace
 			
 		\item \pyc{texexpr=r'\Gamma\left(-\dfrac{3}{\,2\,}\right)'}
+			\pyc{result=simplify(tex2sym(texexpr))}
+			\py{'${:s}=\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace
+			
+		\item \pyc{texexpr=r'\dfrac{\Gamma(11)}{\Gamma(10)}'}
 			\pyc{result=simplify(tex2sym(texexpr))}
 			\py{'${:s}=\displaystyle {:s}$'.format(mylatexstyle(texexpr),mylatex(result))}\myvspace
 			
