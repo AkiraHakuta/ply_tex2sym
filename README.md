@@ -90,7 +90,7 @@ LaTeX2SymPy <https://github.com/augustt198/latex2sympy> があります。
 <https://www.tug.org/texlive/acquire-netinstall.html>  
 install-tl-windows.exe でインスツールする。  
 \texlive\2017\bin\win32の中にpythontex.exeがあります。  
-これを使う！  
+これを使う！ $\pi$  
 
 #### Python3  
 まず、<https://www.python.org/downloads/windows/> に入って、  
