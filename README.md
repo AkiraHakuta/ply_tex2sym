@@ -207,7 +207,7 @@ pyはpython、cはcommandの意味。
 \py{'text'}と\pyc{print('text')} は共に、文字列 text を出力します。  
 
 tex2sym_parser.mylatex(sympyexpr), tex2sym_parser.mylatexstyle(texexpr)   
-で一部のギリシャ文字と \\( \alpha \\) が使える用に、置き換えをしています。  
+で一部のギリシャ文字と &pi;, i, e が使える用に、置き換えをしています。  
 
 error となる可能性があるため、   
 \py{'$\displaystyle {}={}$'.format(mylatexstyle(texexpr),mylatex(result))} を   
