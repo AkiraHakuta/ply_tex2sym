@@ -100,8 +100,8 @@ pip install pygments
 pip install sympy  
 pip install ply   
 と打ち込む。Successfully installed ...　と表示されればOK!    
-\Python34\Lib\site-packagesのなかにパッケージのフォルダができる。    
-当方は Python 3.4.4 で動作を確認しています。  
+\Python36\Lib\site-packagesのなかにパッケージのフォルダができる。    
+当方は Python 3.6.2 で動作を確認しています。  
 
 ### 使い方  
 python.exe tex2sym_parser.py  
@@ -233,8 +233,8 @@ error となる可能性があるため、
 他のモジュールと同様に、    
 from tex2sym_parser import tex2sym, mylatex, mylatexstyle   
 だけで import できるようにするには、    
-まず、ダウンロードしたフォルダー ply_tex2sym-master を、Python35\Lib\site-packages にコピーまたは移動し,   
-Python34\Lib\site-packages に、例えば、  
+まず、ダウンロードしたフォルダー ply_tex2sym-master を、Python36\Lib\site-packages にコピーまたは移動し,   
+Python36\Lib\site-packages に、例えば、  
 ply_tex2sym-master  
 の1行だけのファイル ply_tex2sym-master.pth を作ります。    
 Pythonは .pth の付いたファイルを読み込んで path を設定します。絶対path でもOK。    
@@ -306,4 +306,10 @@ example12.tex を追加
 ```
 高次微分、ガンマ関数、ゼータ関数 を追加 
 微分方程式の使用例を追加
+```
+
+2017/08/06
+
+```
+Python 3.6.2 で動作確認
 ```
