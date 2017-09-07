@@ -14,7 +14,7 @@ precedence = (
     ('left', 'PLUS', 'MINUS'),
     ('left', 'MULT', 'DIV'),
     ('right', 'UPLUS', 'UMINUS'),  
-    ('right', 'EXPONENT'),    
+    ('right', 'EXPONENT','FACTORIAL'),    
     )
 
 
